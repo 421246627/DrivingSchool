@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 常量配置 -->
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<!-- 访问后戳 -->
+	<constant name="struts.action.extension" value="do,action,,"></constant>
+	<!-- 对象工厂:所有对象交由spring进行管理 -->
+	<constant name="struts.objectFactory" value="spring"></constant>
+</struts>    
