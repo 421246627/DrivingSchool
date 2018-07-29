@@ -121,7 +121,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="personalcenter.jsp" class="nav__link">个 人 中 心</a>
+								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
 								<a href="price.html" class="nav__link">price</a>
@@ -1253,7 +1253,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="personalcenter.jsp" class="nav__link">个 人 中 心</a>
+								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
 								<a href="price.html" class="nav__link">price</a>

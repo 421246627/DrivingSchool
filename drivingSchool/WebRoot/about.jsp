@@ -3,8 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 	<head>
 	<base href="<%=basePath%>">
@@ -86,10 +85,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="nav__close"></div>
 						<ul class="nav__list">
 							<li class="nav__item">
-								<a href="index.jsp" class="nav__link nav__link_has-sub">主 页</a>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link nav__link_has-sub nav__link_active">主 页</a>
 								<ul class="nav__sub">
 									<li class="nav__item">
-										<a href="index.jsp" class="nav__link">主 页</a>
+										<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
 									</li>
 									<li class="nav__item">
 										<a href="index-moto.html" class="nav__link">Motorcycle Training</a>
@@ -109,10 +108,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</ul>
 							</li>
 							<li class="nav__item">
-								<a href="about.jsp" class="nav__link nav__link_active">关 于 我 们</a>
+								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="feature.html" class="nav__link">features</a>
+								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
 								<a href="price.html" class="nav__link">price</a>
@@ -305,10 +304,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="nav__close"></div>
 						<ul class="nav__list">
 							<li class="nav__item">
-								<a href="index.jsp" class="nav__link nav__link_has-sub">主 页</a>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link nav__link_has-sub nav__link_active">主 页</a>
 								<ul class="nav__sub">
 									<li class="nav__item">
-										<a href="index.jsp" class="nav__link">主 页</a>
+										<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
 									</li>
 									<li class="nav__item">
 										<a href="index-moto.html" class="nav__link">Motorcycle Training</a>
@@ -328,10 +327,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</ul>
 							</li>
 							<li class="nav__item">
-								<a href="about.jsp" class="nav__link nav__link_active">关 于 我 们</a>
+								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="feature.html" class="nav__link">features</a>
+								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
 								<a href="price.html" class="nav__link">price</a>
@@ -523,8 +522,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="dev">
 			<div class="container">
 				<div class="dev__item">
-					Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-				</div>
+					版权 &copy; 2018年。公司名称版权所有 A309</div>
 			</div>
 		</div>
 		<script>

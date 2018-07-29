@@ -1,8 +1,19 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 
-	<head>
-		<meta charset="utf-8">
+<!DOCTYPE html>
+<html>
+	<head><head>
+	<base href="<%=basePath%>">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<link rel="alternate icon" type="image/png" href="assets/images/logo.png"><!--在title添加logo  -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="imagetoolbar" content="no">
@@ -29,51 +40,12 @@
 		<link sizes="16x16" href="favicon-16x16.png" rel="icon" type="image/png">
 		<link sizes="32x32" href="favicon-32x32.png" rel="icon" type="image/png">
 		<link rel="manifest" href="manifest.json">
-		<title>Features</title>
+		<title>个人中心</title>
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 		<link href="assets/styles/app.min.css" rel="stylesheet">
 	</head>
-
 	<body class="page">
-		<div class="bar-social">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 hidden-xs">
-						<p class="bar-social__text">Lessons From just $20 Per Hour or 5 Lessons for $120 or 10 Hours For $180</p>
-					</div>
-					<div class="col-md-6">
-						<ul class="bar-social__list">
-							<li class="bar-social__list-item">
-								<a href="" class="bar-social__link">
-									<svg class="bar-social__icon"><use xlink:href="assets/images/icon.svg#icon_vk"></use></svg>
-								</a>
-							</li>
-							<li class="bar-social__list-item">
-								<a href="" class="bar-social__link">
-									<svg class="bar-social__icon"><use xlink:href="assets/images/icon.svg#icon_facebook"></use></svg>
-								</a>
-							</li>
-							<li class="bar-social__list-item">
-								<a href="" class="bar-social__link">
-									<svg class="bar-social__icon"><use xlink:href="assets/images/icon.svg#icon_twitter"></use></svg>
-								</a>
-							</li>
-							<li class="bar-social__list-item">
-								<a href="" class="bar-social__link">
-									<svg class="bar-social__icon"><use xlink:href="assets/images/icon.svg#icon_instagram"></use></svg>
-								</a>
-							</li>
-							<li class="bar-social__list-item">
-								<a href="" class="bar-social__link">
-									<svg class="bar-social__icon"><use xlink:href="assets/images/icon.svg#icon_ok"></use></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="header">
 			<div class="header__row container">
 				<div class="row">
@@ -87,15 +59,15 @@
 					</div>
 					<div class="header__contact col-md-3">
 						<div class="header__address">
-							<svg class="header__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>Matvey street, russia</div>
+							<svg class="header__pin"><use xlink:href="assets/images/icon.svg#icon_pin"></use></svg>河南省-郑州市-二七区</div>
 					</div>
 					<div class="header__contact col-md-2">
 						<a href="tel:+908887775544" class="header__phone">
-							<svg class="header__phone-icon"><use xlink:href="assets/images/icon.svg#icon_phone"></use></svg>+ 90 888 777 5544</a>
+							<svg class="header__phone-icon"><use xlink:href="assets/images/icon.svg#icon_phone"></use></svg>+ 150 9307 7197</a>
 					</div>
 					<div class="header__contact col-md-2">
 						<a class="btn header__callback" href="">
-							<span class="btn__text">Call me</span>
+							<span class="btn__text">联 系 我 们</span>
 						</a>
 					</div>
 				</div>
@@ -113,10 +85,10 @@
 						<div class="nav__close"></div>
 						<ul class="nav__list">
 							<li class="nav__item">
-								<a href="index.html" class="nav__link nav__link_has-sub">Home</a>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link nav__link_has-sub nav__link_active">主 页</a>
 								<ul class="nav__sub">
 									<li class="nav__item">
-										<a href="index.html" class="nav__link">Home</a>
+										<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
 									</li>
 									<li class="nav__item">
 										<a href="index-moto.html" class="nav__link">Motorcycle Training</a>
@@ -136,10 +108,10 @@
 								</ul>
 							</li>
 							<li class="nav__item">
-								<a href="about.html" class="nav__link">about</a>
+								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="feature.html" class="nav__link nav__link_active">features</a>
+								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
 								<a href="price.html" class="nav__link">price</a>
@@ -190,53 +162,35 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8">
-						<h1 class="title-page">Features</h1>
+						<h1 class="title-page">个 人 中 心</h1>
 						<div class="breadcrumbs">
 							<ul class="breadcrumbs__list">
 								<li class="breadcrumbs__item">
-									<a href="" class="breadcrumbs__link">Index</a>
+									<a href="" class="breadcrumbs__link">主 页</a>
 								</li>
-								<li class="breadcrumbs__item">Features</li>
+								<li class="breadcrumbs__item">个 人 中 心</li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-md-4">
-						<form action="#" class="search">
-							<div class="search__box">
-								<input type="text" name="st" placeholder="Search..." class="search__control" />
-								<button type="submit" class="search__btn"></button>
-							</div>
-						</form>
+						<img src="upload/defaultusersphoto.png" style="width:50px;height:50px;border:2px solid #CECECE;border-radius:5px;"/>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="content">
-			<div class="text">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-								dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-								book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
-								unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
-								more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-						</div>
-					</div>
-				</div>
-			</div>
+		<div class="content" style="padding:0px">
 			<div class="feature">
 				<div class="feature__list">
 					<div class="container">
 						<div class="feature__row-list row">
-							<div class="feature__item col-md-3">
+							<div class="feature__item col-md-6">
 								<div class="feature__icon">
 									<svg class="feature__price"><use xlink:href="assets/images/icon.svg#icon_price"></use></svg>
 								</div>
 								<h3 class="feature__title">best service</h3>
 								<p class="feature__desc">Lorem ipsum Sunt cupidatat reprehenderit cillum reprehenderit incididunt consequat</p>
 							</div>
-							<div class="feature__item col-md-3">
+							<div class="feature__item col-md-6">
 								<div class="feature__icon">
 									<svg class="feature__timer"><use xlink:href="assets/images/icon.svg#icon_timer"></use></svg>
 								</div>
@@ -298,7 +252,7 @@
 			<div class="sertificate">
 				<div class="container">
 					<h2 class="title title_theme_white">
-						<span class="title__mark">SERTIFICATE</span>
+						<span class="title__mark">荣 誉 证 书</span>
 					</h2>
 					<ul class="sertificate__list row">
 						<li class="sertificate__item col-xs-6 col-md-2">
@@ -355,10 +309,10 @@
 						<div class="nav__close"></div>
 						<ul class="nav__list">
 							<li class="nav__item">
-								<a href="index.html" class="nav__link nav__link_has-sub">Home</a>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link nav__link_has-sub nav__link_active">主 页</a>
 								<ul class="nav__sub">
 									<li class="nav__item">
-										<a href="index.html" class="nav__link">Home</a>
+										<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
 									</li>
 									<li class="nav__item">
 										<a href="index-moto.html" class="nav__link">Motorcycle Training</a>
@@ -378,10 +332,10 @@
 								</ul>
 							</li>
 							<li class="nav__item">
-								<a href="about.html" class="nav__link">about</a>
+								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="feature.html" class="nav__link nav__link_active">features</a>
+								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
 								<a href="price.html" class="nav__link">price</a>
@@ -431,11 +385,10 @@
 				<div class="row">
 					<div class="footer__section col-md-3">
 						<div class="footer__about">
-							<h4 class="footer__title">about</h4>
-							<p class="footer__text">have been serving NYC with its 8 branches and completed 5k+ students in last 10 years. We have a team of experienced
-								and certified trainers who will help you from the start to end of a driving lesson.</p>
+							<h4 class="footer__title">关 于 我 们</h4>
+							<p class="footer__text">在过去的1年里,在郑州拥有8个训练场地,完成了5000多名学生。我们有一支经验丰富的队伍还有认证的培训师,从驾驶课开始到结束都会给你帮助。</p>
 							<div class="logo footer__logo">
-								<a href="index.html" class="logo__link">
+								<a href="index.jsp" class="logo__link">
 									<svg class="logo__icon"><use xlink:href="assets/images/icon.svg#icon_logo"></use></svg>
 									<span class="logo__text">driving school</span>
 								</a>
@@ -444,7 +397,7 @@
 					</div>
 					<div class="footer__section col-md-3">
 						<div class="footer__blog">
-							<h4 class="footer__title">blog</h4>
+							<h4 class="footer__title">评 论</h4>
 							<article class="footer__post">
 								<a href="" class="footer__post-wrap">
 									<h5 class="footer__post-title">Mountains car travel</h5>
@@ -458,14 +411,14 @@
 								</a>
 							</article>
 							<a href="" class="footer__more">
-								See all posts
+								观 看 所 有 评 论
 								<svg class="footer__more-icon"><use xlink:href="assets/images/icon.svg#icon_right"></use></svg>
 							</a>
 						</div>
 					</div>
 					<div class="footer__section col-md-3">
 						<div class="footer__instagramm">
-							<h4 class="footer__title">Instagram</h4>
+							<h4 class="footer__title">动 态</h4>
 							<ul class="footer__instagramm-list">
 								<li class="footer__instagramm-item">
 									<a href="assets/images/inst/i1.jpg" class="footer__instagramm-link">
@@ -523,48 +476,48 @@
 								</li>
 							</ul>
 							<a href="" class="footer__more">
-								See all posts
+								观 看 所 有 评 论
 								<svg class="footer__more-icon"><use xlink:href="assets/images/icon.svg#icon_right"></use></svg>
 							</a>
 						</div>
 					</div>
 					<div class="footer__section col-md-3">
 						<div class="footer__hours">
-							<h4 class="footer__title">Opening Hours</h4>
+							<h4 class="footer__title">营 业 时 间</h4>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Monday</div>
+								<div class="footer__hours-day">星 期 一</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 18:00</div>
+								<div class="footer__hours-time">08:00 - 20:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Tuesday</div>
+								<div class="footer__hours-day">星 期 二</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 18:00</div>
+								<div class="footer__hours-time">08:00 - 20:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Wednesday</div>
+								<div class="footer__hours-day">星 期 三</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 18:00</div>
+								<div class="footer__hours-time">08:00 - 20:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Thursday</div>
+								<div class="footer__hours-day">星 期 四</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 18:00</div>
+								<div class="footer__hours-time">08:00 - 20:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Friday</div>
+								<div class="footer__hours-day">星 期 五</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 18:00</div>
+								<div class="footer__hours-time">08:00 - 20:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Saturday</div>
+								<div class="footer__hours-day">星 期 六</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 13:30</div>
+								<div class="footer__hours-time">08:00 - 22:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Sunday</div>
+								<div class="footer__hours-day">星 期 日</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">Closed</div>
+								<div class="footer__hours-time">08:00 - 22:00</div>
 							</div>
 						</div>
 					</div>
@@ -574,8 +527,7 @@
 		<div class="dev">
 			<div class="container">
 				<div class="dev__item">
-					Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-				</div>
+					版权 &copy; 2018年。公司名称版权所有 A309</div>
 			</div>
 		</div>
 		<script>

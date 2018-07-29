@@ -40,6 +40,8 @@ public class usersService
 	{
 		user.setUserId(encryption.getUUID());
 		user.setUserTypeId("c65d451b-1228-439c-9f1e-fa48b6c2d8cc");
+		user.setUserName(encryption.getUUID());
+		user.setPhoto("upload/defaultusersphoto.png"); 
 		if(user.getUserId().equals(userdaoimpl.insert_users(user)))
 		return true;
 		else
