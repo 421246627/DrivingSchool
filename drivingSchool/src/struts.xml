@@ -7,4 +7,19 @@
 	<constant name="struts.action.extension" value="do,action,,"></constant>
 	<!-- 对象工厂:所有对象交由spring进行管理 -->
 	<constant name="struts.objectFactory" value="spring"></constant>
+	<package name="set" extends="json-default">
+		<interceptors>
+			<interceptor name="loginCheck" class="com.drivingSchool.interceptors.loginCheck">
+				<param name="setIncludeMethods">register_user</param>
+			</interceptor>
+			<interceptor-stack name="inters">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="loginCheck"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="inters"></default-interceptor-ref>
+		<global-results>
+			<result name="loginfailure">/test.jsp</result>
+		</global-results>
+	</package>
 </struts>    

@@ -18,5 +18,21 @@ public class drivingLicenseCostDAOImpl extends BaseDAO implements  drivingLicens
 		String hql="from drivingLicenseCost";
 		return super.query_executeFindByPage(hql,3,1,null);
 	}
-
+	@Override
+	public List<drivingLicenseCost> find_drivingLicenseCost() 
+	{
+		String hql="from drivingLicenseCost";
+		return super.query_executeFind(hql, null);
+	}
+	@Override
+	public drivingLicenseCost find_drivingLicenseCostBydrivingLicenseCostId(String drivingLicenseCostId)
+	{
+		return super.get(drivingLicenseCost.class,drivingLicenseCostId);
+	}
+	@Override
+	public List<drivingLicenseCost> find_drivingLicenseCostBydrivingLicenseCostIdAndClassTypesId(String drivingLicenseTypeId, String ClassTypesId) 
+	{
+		String hql="from drivingLicenseCost where drivingLicenseTypeId=? and ClassTypesId=?";
+		return super.query_executeFind(hql,null,drivingLicenseTypeId,ClassTypesId);
+	}
 }

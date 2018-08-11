@@ -1,4 +1,6 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -111,10 +113,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
+								<a href="personalcenterAction/load_personalcenter" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
-								<a href="price.html" class="nav__link">price</a>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
 								<a href="faq.html" class="nav__link">faq</a>
@@ -172,79 +174,76 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</ul>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<img src="upload/defaultusersphoto.png" style="width:50px;height:50px;border:2px solid #CECECE;border-radius:5px;"/>
-					</div>
 				</div>
 			</div>
 		</div>
-		<div class="content" style="padding:0px">
-			<div class="feature">
-				<div class="feature__list">
-					<div class="container">
-						<div class="feature__row-list row">
-							<div class="feature__item col-md-6">
-								<div class="feature__icon">
-									<svg class="feature__price"><use xlink:href="assets/images/icon.svg#icon_price"></use></svg>
+		<div class="content">
+			<div class="blog">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3 col-md-push-9">
+							<div class="widget">
+								<div class="widget__header">
+									<span class="widget__header-text">个 人 中 心</span>
 								</div>
-								<h3 class="feature__title">best service</h3>
-								<p class="feature__desc">Lorem ipsum Sunt cupidatat reprehenderit cillum reprehenderit incididunt consequat</p>
-							</div>
-							<div class="feature__item col-md-6">
-								<div class="feature__icon">
-									<svg class="feature__timer"><use xlink:href="assets/images/icon.svg#icon_timer"></use></svg>
+								<div class="widget__body">
+									<div class="blog-category">
+										<ul class="blog-category__list">
+											<c:choose>
+												<c:when test="${empty requestScope.studentApply }"></c:when>
+												<c:otherwise>
+													<c:choose>
+														<c:when test="${requestScope.studentApply.stateId eq '554a242a-b6a1-491f-bf95-2f3b9bd4cef2'}">
+															<li class="blog-category__item">
+																<a href="studentApplyAction/student_Alipay" class="blog-category__link" target="_blank">
+																	<span class="blog-category__name">驾 考 支 付</span>
+																	<input type="hidden" id="update_studentApplyResult" value="${requestScope.update_studentApplyResult }">
+																	<input type="hidden" id="alipayerror" value="${requestScope.alipayerror}">
+																</a>
+															</li>
+														</c:when>
+														<c:otherwise>
+															<li class="blog-category__item">
+																<a href="" class="blog-category__link">
+																	<span class="blog-category__name">订 单 信 息</span>
+																</a>
+															</li>
+															<li class="blog-category__item">
+																<a href="" class="blog-category__link">
+																	<span class="blog-category__name">预 约 考 试</span>
+																</a>
+															</li>
+															<li class="blog-category__item">
+																<a href="" class="blog-category__link">
+																	<span class="blog-category__name">预 约 体 检</span>
+																</a>
+															</li>
+															<li class="blog-category__item">
+																<a href="" class="blog-category__link">
+																	<span class="blog-category__name">预 约 练 车</span>
+																</a>
+															</li>
+														</c:otherwise>
+													</c:choose>
+												</c:otherwise>
+											</c:choose>
+											<li class="blog-category__item">
+												<a href="body/personalcenter.jsp" class="blog-category__link">
+													<span class="blog-category__name">信 息 修 改</span>
+												</a>
+											</li>
+											<li class="blog-category__item">
+												<a href="usersAction/quit_users" class="blog-category__link">
+													<span class="blog-category__name">退 出 登 录</span>
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<h3 class="feature__title">Best time training</h3>
-								<p class="feature__desc">You can choose your team on weekdays after work or on weekends</p>
-							</div>
-							<div class="feature__item col-md-3">
-								<div class="feature__icon">
-									<svg class="feature__people"><use xlink:href="assets/images/icon.svg#icon_people"></use></svg>
-								</div>
-								<h3 class="feature__title">We train all ages</h3>
-								<p class="feature__desc">we take into account the age of individual moments.</p>
-							</div>
-							<div class="feature__item col-md-3">
-								<div class="feature__icon">
-									<svg class="feature__target"><use xlink:href="assets/images/icon.svg#icon_target"></use></svg>
-								</div>
-								<h3 class="feature__title">Individual approach</h3>
-								<p class="feature__desc">to everyone we have our own approach.</p>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="feature__list">
-					<div class="container">
-						<div class="feature__row-list row">
-							<div class="feature__item col-md-3">
-								<div class="feature__icon">
-									<svg class="feature__teacher"><use xlink:href="assets/images/icon.svg#icon_teacher"></use></svg>
-								</div>
-								<h3 class="feature__title">Calm instructor</h3>
-								<p class="feature__desc">practical training for you will be happy.</p>
-							</div>
-							<div class="feature__item col-md-3">
-								<div class="feature__icon">
-									<svg class="feature__stop"><use xlink:href="assets/images/icon.svg#icon_stop"></use></svg>
-								</div>
-								<h3 class="feature__title">duplicate pedals</h3>
-								<p class="feature__desc">Cars equipped with duplicate pedals - avtoinstruktor always insures you.</p>
-							</div>
-							<div class="feature__item col-md-3">
-								<div class="feature__icon">
-									<svg class="feature__docs"><use xlink:href="assets/images/icon.svg#icon_docs"></use></svg>
-								</div>
-								<h3 class="feature__title">all documents</h3>
-								<p class="feature__desc">The full package of documents at the end - you get all the documents at the end of</p>
-							</div>
-							<div class="feature__item col-md-3">
-								<div class="feature__icon">
-									<svg class="feature__chair"><use xlink:href="assets/images/icon.svg#icon_chair"></use></svg>
-								</div>
-								<h3 class="feature__title">best classroom</h3>
-								<p class="feature__desc">Equipped classrooms - all done according to the rules and laws</p>
-							</div>
+						<div class="col-md-9 col-md-pull-3">
+							<iframe id="iframebody" src="body/users.jsp" name="iframebody" style="width:100%;height:1000px;border:0px;"></iframe>
 						</div>
 					</div>
 				</div>
@@ -335,10 +334,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
+								<a href="personalcenterAction/load_personalcenter" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
-								<a href="price.html" class="nav__link">price</a>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
 								<a href="faq.html" class="nav__link">faq</a>
@@ -543,7 +542,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script src="assets/scripts/rome.min.js"></script>
 		<script src="assets/scripts/isotope.pkgd.min.js"></script>
 		<script src="assets/scripts/app.min.js"></script>
+		<script>
+			$().ready(
+				function()
+				{
+					var update_studentApplyResult=$("#update_studentApplyResult").val();
+					var alipayerror=$("#alipayerror").val();
+					if(update_studentApplyResult.length>0&&update_studentApplyResult=="false")
+					{
+						alert("加载支付页面错误,请联系平台客服,150 9307 7197");	
+					}
+					if(alipayerror.length>0&&alipayerror=="false")
+					{
+						alert("支付失败,请点击驾考支付重新支付,谢谢合作!");
+					}
+				}
+			);
+		</script>
 	</body>
-
 </html>
 

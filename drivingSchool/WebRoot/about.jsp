@@ -111,10 +111,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
+								<a href="personalcenterAction/load_personalcenter" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
-								<a href="price.html" class="nav__link">price</a>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
 								<a href="faq.html" class="nav__link">faq</a>
@@ -330,10 +330,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
+								<a href="personalcenterAction/load_personalcenter" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
-								<a href="price.html" class="nav__link">price</a>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
 								<a href="faq.html" class="nav__link">faq</a>

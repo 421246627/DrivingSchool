@@ -29,4 +29,10 @@ public class drivingLicenseCostAction extends ActionSupport
 		request.put("drivingLicenseCosts",drivingLicenseCostservice.find_drivingLicenseCostThree());
 		return SUCCESS;
 	}
+	@Action(value="find_drivingLicenseCost",results={@Result(name="success",type="chain",params={"namespace","/otherCostAction"},location="find_otherCosts")})
+	public String find_drivingLicenseCost()
+	{
+		request.put("drivingLicenseCosts",drivingLicenseCostservice.find_drivingLicenseCost());
+		return SUCCESS;
+	}
 }

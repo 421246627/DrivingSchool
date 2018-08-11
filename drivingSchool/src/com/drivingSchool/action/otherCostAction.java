@@ -29,4 +29,10 @@ public class otherCostAction extends ActionSupport
 		request.put("otherCosts",otherCostservice.find_otherCost());
 		return SUCCESS;
 	}
+	@Action(value="find_otherCosts",results={@Result(name="success",location="/body/price.jsp")})
+	public String find_otherCosts()
+	{
+		request.put("otherCosts",otherCostservice.find_otherCost());
+		return SUCCESS;
+	}
 }

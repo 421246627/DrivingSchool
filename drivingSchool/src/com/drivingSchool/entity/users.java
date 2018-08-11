@@ -1,5 +1,6 @@
 package com.drivingSchool.entity;
 
+import java.io.File;
 import java.io.Serializable;
 
 import javax.persistence.Column;

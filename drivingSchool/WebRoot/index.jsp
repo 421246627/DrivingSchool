@@ -121,10 +121,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
+								<a href="personalcenterAction/load_personalcenter" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
-								<a href="price.html" class="nav__link">price</a>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
 								<a href="faq.html" class="nav__link">faq</a>
@@ -236,7 +236,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="tiser__find">
 				<div class="container">
-					<form action="index.jsp" class="form col-md-4 col-md-offset- tiser__form" method="post">
+					<form action="usersAction/login_user" id="loginform" class="form col-md-4 col-md-offset- tiser__form" method="post">
 						<h3 class="form__title">Login
 							<span class="form__mark">
 								<span class="form__mark-text">Driving School</span>
@@ -251,7 +251,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</span>
 									<span class="inp">
 										<span class="inp__box">
-											<input class="inp__control" type="text" id="loginuserAccount" name="userAccount" placeholder="请输入你的账号..." />
+											<input class="inp__control" type="text" id="loginuserAccount" name="users.userAccount" placeholder="请输入你的账号..." />
 										</span>
 									</span>
 								</div>
@@ -265,7 +265,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</span>
 									<span class="inp">
 										<span class="inp__box">
-											<input class="inp__control" type="password" id="loginuserPassword" name="userPassword" placeholder="请输入你的密码..." />
+											<input class="inp__control" type="password" id="loginuserPassword" name="users.userPassword" placeholder="请输入你的密码..." />
 										</span>
 									</span>
 								</div>
@@ -273,9 +273,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 						<div class="form__row row">
 							<div class="col-md-12">
-								<button class="btn btn_fullwidth" type="submit">
-									<span class="btn__text">登 录</span>
-								</button>
+								<input type="hidden" id="login_result" value="${requestScope.login_result}">
+								<a class="btn btn_fullwidth" id="logina">登 录</a>
 							</div>
 						</div>
 						<div class="form__row row">
@@ -333,7 +332,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<p>陆路通学车网(http://192.168.100.16:8080/drivingSchool)是郑州市二七区AAA软件学院的一名学生利用互联网技术,专注于传统驾培行业运营方案的解决,并为用户提供专业的一站式驾培服务的互联网驾校。</p>
 								<p>陆路通学车网以“营销+运营+管理+服务”的运营模式对其进行精细化高效管理,以“用户体验”为宗旨，努力为广大学员提供舒适愉悦的驾培体验!</p>
 								<p>同时,易教练学车网还拥有通过率超高的教练团队,教学场地遍及郑州全市范围,每一位学员都能享受到专业学车顾问的跟踪服务,为您学车过程排忧解难。易教练学车网的建立,对学员而言是巨大的利好—学车体验更好、时间更短、成本更低、技能更强；对社会也是巨大的利好—解决学车难、学车贵、学车不方便等问题。</p>
-								<a class="btn about__btn" href="">
+								<a class="btn about__btn" href="drivingLicenseCostAction/find_drivingLicenseCost">
 									<span class="btn__text">预  约  报  名</span>
 								</a>
 							</div>
@@ -381,7 +380,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<span class="countdown__period">seconds</span>
 									</div>
 								</div>
-								<a class="btn about__btn" href="">
+								<a class="btn about__btn" href="drivingLicenseCostAction/find_drivingLicenseCost">
 									<span class="btn__text">预 约  报  名</span>
 								</a>
 							</div>
@@ -530,7 +529,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 															<li class="price-table__feature-item">温馨的服务</li>
 															<li class="price-table__feature-item">舒心的心理辅导</li>
 														</ul>
-														<a class="btn price-table__btn" href="">
+														<a class="btn price-table__btn" href="exerciseFloorAction/find_exerciseFloor?drivingLicenseCostId=${d.drivingLicenseCostId }">
 															<span class="btn__text">预 约 报 名</span>
 														</a>
 														<div class="price-table__stars">
@@ -556,7 +555,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 															<li class="price-table__feature-item">温馨的服务</li>
 															<li class="price-table__feature-item">舒心的心理辅导</li>
 														</ul>
-														<a class="btn price-table__btn" href="">
+														<a class="btn price-table__btn" href="exerciseFloorAction/find_exerciseFloor?drivingLicenseCostId=${d.drivingLicenseCostId }">
 															<span class="btn__text">预 约 报 名</span>
 														</a>
 													</div>
@@ -576,7 +575,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 															<li class="price-table__feature-item">温馨的服务</li>
 															<li class="price-table__feature-item">舒心的心理辅导</li>
 														</ul>
-														<a class="btn price-table__btn" href="">
+														<a class="btn price-table__btn" href="exerciseFloorAction/find_exerciseFloor?drivingLicenseCostId=${d.drivingLicenseCostId }">
 															<span class="btn__text">预 约 报 名</span>
 														</a>
 													</div>
@@ -771,9 +770,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<div class="course__item-popup">
 											<div class="course__item-popup-name">${o.moreInfo }</div>
 											<div class="course__item-popup-action">
-												<a class="btn" href="">
-													<span class="btn__text">详 细 信 息</span>
-												</a>
 												<a class="btn" href="">
 													<span class="btn__text">购 买</span>
 												</a>
@@ -1253,10 +1249,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="body/personalcenter.jsp" class="nav__link">个 人 中 心</a>
+								<a href="personalcenterAction/load_personalcenter" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
-								<a href="price.html" class="nav__link">price</a>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
 								<a href="faq.html" class="nav__link">faq</a>
@@ -1616,11 +1612,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					{
 						alert("抱歉,注册失败,请重新注册!");
 					}
+					var login_result=$("#login_result").val();
+					if(null!=login_result&&"false"==login_result)
+					{
+						alert("账号或密码输入错误,请重新输入!");
+					}
 				});
 				$("#registersa").click(
 					function()
 					{
 						$.scrollTo('#registers',1500); 
+					}
+				);
+				function checkloginuserAccount()//检查登录账号
+				{
+					var loginuserAccount=$("#loginuserAccount").val();
+					if(loginuserAccount.length>5)
+					return true;
+					else
+					return false;
+				}
+				function checkloginuserPassword()
+				{
+					var userPassword=$("#loginuserPassword").val();
+					if(userPassword.length>0)
+					return true;
+					else
+					return false;
+				}
+				$("#logina").click(
+					function()
+					{
+						if(checkloginuserAccount())
+						{
+							if(checkloginuserPassword())
+							{
+								$("#loginform").submit();
+							}
+							else
+							{
+								alert("密码不能为空,请重新输入!");
+							}
+						}
+						else
+						{
+							alert("账号为空或者账号格式不正确!");
+						}
 					}
 				);
 		</script>

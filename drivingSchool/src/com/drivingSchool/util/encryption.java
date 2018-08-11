@@ -2,9 +2,7 @@ package com.drivingSchool.util;
 
 import java.security.MessageDigest;
 import java.util.UUID;
-
 import org.springframework.stereotype.Component;
-
 @Component
 public class encryption 
 {

@@ -18,4 +18,16 @@ public interface usersDAO
 	 * @return
 	 */
 	public Serializable insert_users(users user);
+	/**
+	 * 登录
+	 * @param user
+	 * @return
+	 */
+	public List<users> login_users(users user);
+	/**
+	 * 修改用户
+	 * @param user
+	 * @return
+	 */
+	public boolean update_users(users user);
 }

@@ -14,7 +14,7 @@
   </properties>
   <dependencies>
   <dependency>
-	    <groupId>org.apache.struts</groupId>
+	    <groupId>org.apache.struts</groupId> 
 	    <artifactId>struts2-core</artifactId>
 	    <version>${struts2.version}</version>
 	</dependency>
@@ -507,6 +507,43 @@
 		<groupId>javax.mail</groupId>
 		<artifactId>mail</artifactId>
 		<version>1.0</version>
+	</dependency>
+	<!-- 支付宝沙箱需要jar包 -->
+	<dependency>
+	    <groupId>net.sf.ezmorph</groupId>
+	    <artifactId>ezmorph</artifactId>
+	    <version>1.0.6</version>
+	</dependency>
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>3.1.0</version>
+	    <scope>provided</scope>
+	</dependency>
+	<dependency>
+	    <groupId>xom</groupId>
+	    <artifactId>xom</artifactId>
+	    <version>1.2.5</version>
+	</dependency>
+	<dependency>
+		<groupId>commons.logging.source</groupId>
+		<artifactId>commons.logging.source</artifactId>
+		<version>1.1.1</version>
+	</dependency>
+	<dependency>
+		<groupId>alipay.sdk.source</groupId>
+		<artifactId>alipay.sdk.source</artifactId>
+		<version>1.0</version>
+	</dependency>
+	<dependency>
+		<groupId>alipay.sdk</groupId>
+		<artifactId>alipay.sdk</artifactId>
+		<version>1.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>fastjson</artifactId>
+	    <version>1.2.47</version>
 	</dependency>
   </dependencies>
   <build>

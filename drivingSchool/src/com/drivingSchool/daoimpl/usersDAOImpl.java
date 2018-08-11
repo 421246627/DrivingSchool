@@ -22,5 +22,15 @@ public class usersDAOImpl extends BaseDAO implements usersDAO
 	{
 		return super.save(user);
 	}
-	
+	@Override
+	public List<users> login_users(users user) 
+	{
+		String hql="from users where userAccount=? and userPassword=?";
+		return super.query_executeFind(hql, null,user.getUserAccount(),user.getUserPassword());
+	}
+	@Override
+	public boolean update_users(users user) 
+	{
+		return super.update(user);
+	}
 }
