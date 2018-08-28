@@ -2,10 +2,8 @@ package com.drivingSchool.util;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.UUID;
 
@@ -48,6 +46,7 @@ public class Uploads {
 					try
 					{
 						File newfile=new File(path+"/"+randomuuid+"."+filetype);
+						@SuppressWarnings("resource")
 						FileInputStream in=new FileInputStream(file[i]);
 						FileOutputStream out=new FileOutputStream(newfile);
 						byte[] bytes=new byte[1024];

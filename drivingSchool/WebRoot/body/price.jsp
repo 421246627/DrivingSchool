@@ -187,147 +187,161 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<p class="desc course__desc">这 里 有 一 群 秉 持 完 美 主 义 的 培 训 者。</p>
 				<div class="price-table">
 					<c:choose>
-						<c:when test="${empty requestScope.drivingLicenseCosts }">
-							<div class="price-table__list row">
-								<div class="swiper-slide">
-									<div class="review__list-item col-md-12 col-lg-10 col-lg-offset-1">
-										<blockquote class="review__block">
-											<div class="review__block-body">
-												<div class="review__block-text">
-													<p>十分抱歉,未能找到驾考套餐,请联系平台客服,谢谢合作!</p>
-												</div>
-												<footer class="review__block-footer">
-													<div class="review__author">+150 9307 7197</div>
-												</footer>
-											</div>
-										</blockquote>
-									</div>
-								</div>
+						<c:when test="${requestScope.studentApply.stateId eq '554a242a-b6a1-491f-bf95-2f3b9bd4cef2' }">
+							<div class="col-xs-12">
+								<a class="btn btn_fullwidth" href="personalcenterAction/load_personalcenter">您已关闭之前驾考支付页面,点击查看详细信息!</a>
 							</div>
 						</c:when>
 						<c:otherwise>
-							<%
-								request.setAttribute("dindex",0);
-							%>
-							<c:forEach items="${requestScope.drivingLicenseCosts }" var="d">
-									<%
-										int dindex=Integer.parseInt(request.getAttribute("dindex").toString());
-										if(dindex==0||dindex%3==0)
-										{
-											dindex=dindex+1;
-											if(0!=dindex)
-											{
-												%>
+							<c:choose>
+								<c:when test="${empty requestScope.drivingLicenseCosts }">
+									<div class="price-table__list row">
+										<div class="swiper-slide">
+											<div class="review__list-item col-md-12 col-lg-10 col-lg-offset-1">
+												<blockquote class="review__block">
+													<div class="review__block-body">
+														<div class="review__block-text">
+															<p>十分抱歉,未能找到驾考套餐,请联系平台客服,谢谢合作!</p>
+														</div>
+														<footer class="review__block-footer">
+															<div class="review__author">+150 9307 7197</div>
+														</footer>
 													</div>
-												<%
-											}
-											%>
-												<div class="price-table__list row" style="margin-top:50px;">
+												</blockquote>
+											</div>
+										</div>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<%
+										request.setAttribute("dindex",0);
+									%>
+									<c:forEach items="${requestScope.drivingLicenseCosts }" var="d">
 											<%
-										}
-										else
-										{
-											dindex=dindex+1;
-										}
-										request.setAttribute("dindex",dindex);
-											%>
-													<c:choose>
-														<c:when test="${d.drivingLicenseCostId eq '3aafdeaa-2d4f-40f7-9363-51f75ee2e502' }">
-															<div class="col-md-4 col-md-push-4">
-																<div class="price-table__item price-table__item_best">
-																	<div class="price-table__best">
-																		<svg class="price-table__star"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg> bestsellers
-																		<svg class="price-table__star"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+												int dindex=Integer.parseInt(request.getAttribute("dindex").toString());
+												if(dindex==0||dindex%3==0)
+												{
+													dindex=dindex+1;
+													if(0!=dindex)
+													{
+														%>
+															</div>
+														<%
+													}
+													%>
+														<div class="price-table__list row" style="margin-top:50px;">
+													<%
+												}
+												else
+												{
+													dindex=dindex+1;
+												}
+												request.setAttribute("dindex",dindex);
+													%>
+															<c:choose>
+																<c:when test="${d.drivingLicenseCostId eq '3aafdeaa-2d4f-40f7-9363-51f75ee2e502' }">
+																	<div class="col-md-4 col-md-push-4">
+																		<div class="price-table__item price-table__item_best">
+																			<div class="price-table__best">
+																				<svg class="price-table__star"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg> bestsellers
+																				<svg class="price-table__star"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+																			</div>
+																			<div class="price-table__value">￥ ${d.price}</div>
+																			<h3 class="price-table__name">${d.ct.classTypesName} ${d.dlt.drivingLicenseTypeName}</h3>
+																			<ul class="price-table__feature-list">
+																				<li class="price-table__feature-item">完整的课程理论</li>
+																				<li class="price-table__feature-item">全驾驶课程</li>
+																				<li class="price-table__feature-item">教练的细心指导</li>
+																				<li class="price-table__feature-item">暂住证办理</li>
+																				<li class="price-table__feature-item">练车券全包</li>
+																				<li class="price-table__feature-item">温馨的服务</li>
+																				<li class="price-table__feature-item">舒心的心理辅导</li>
+																			</ul>
+																			<a class="btn price-table__btn">
+																				<input type="hidden" value="${d.drivingLicenseCostId }">
+																				<span class="btn__text">预 约 报 名</span>
+																			</a>
+																			<div class="price-table__stars">
+																				<svg class="price-table__star"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+																				<svg class="price-table__star"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+																				<svg class="price-table__star"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+																			</div>
+																		</div>
 																	</div>
-																	<div class="price-table__value">￥ ${d.price}</div>
-																	<h3 class="price-table__name">${d.ct.classTypesName} ${d.dlt.drivingLicenseTypeName}</h3>
-																	<ul class="price-table__feature-list">
-																		<li class="price-table__feature-item">完整的课程理论</li>
-																		<li class="price-table__feature-item">全驾驶课程</li>
-																		<li class="price-table__feature-item">教练的细心指导</li>
-																		<li class="price-table__feature-item">暂住证办理</li>
-																		<li class="price-table__feature-item">练车券全包</li>
-																		<li class="price-table__feature-item">温馨的服务</li>
-																		<li class="price-table__feature-item">舒心的心理辅导</li>
-																	</ul>
-																	<a class="btn price-table__btn" href="exerciseFloorAction/find_exerciseFloor?drivingLicenseCostId=${d.drivingLicenseCostId }">
-																		<span class="btn__text">预 约 报 名</span>
-																	</a>
-																	<div class="price-table__stars">
-																		<svg class="price-table__star"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-																		<svg class="price-table__star"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
-																		<svg class="price-table__star"><use xlink:href="assets/images/icon.svg#icon_star"></use></svg>
+																</c:when>
+																<c:when test="${d.ct.classTypesName eq '全包班' }">
+																	<div class="col-md-4">
+																		<div class="price-table__item">
+																			<div class="price-table__value">￥ ${d.price }</div>
+																			<h3 class="price-table__name">${d.ct.classTypesName} ${d.dlt.drivingLicenseTypeName}</h3>
+																			<ul class="price-table__feature-list">
+																				<li class="price-table__feature-item">完整的课程理论</li>
+																				<li class="price-table__feature-item">全驾驶课程</li>
+																				<li class="price-table__feature-item">教练的细心指导</li>
+																				<li class="price-table__feature-item">暂住证办理</li>
+																				<li class="price-table__feature-item">练车券全包</li>
+																				<li class="price-table__feature-item">温馨的服务</li>
+																				<li class="price-table__feature-item">舒心的心理辅导</li>
+																			</ul>
+																			<a class="btn price-table__btn">
+																				<input type="hidden" value="${d.drivingLicenseCostId }">
+																				<span class="btn__text">预 约 报 名</span>
+																			</a>
+																		</div>
 																	</div>
-																</div>
-															</div>
-														</c:when>
-														<c:when test="${d.ct.classTypesName eq '全包班' }">
-															<div class="col-md-4">
-																<div class="price-table__item">
-																	<div class="price-table__value">￥ ${d.price }</div>
-																	<h3 class="price-table__name">${d.ct.classTypesName} ${d.dlt.drivingLicenseTypeName}</h3>
-																	<ul class="price-table__feature-list">
-																		<li class="price-table__feature-item">完整的课程理论</li>
-																		<li class="price-table__feature-item">全驾驶课程</li>
-																		<li class="price-table__feature-item">教练的细心指导</li>
-																		<li class="price-table__feature-item">暂住证办理</li>
-																		<li class="price-table__feature-item">练车券全包</li>
-																		<li class="price-table__feature-item">温馨的服务</li>
-																		<li class="price-table__feature-item">舒心的心理辅导</li>
-																	</ul>
-																	<a class="btn price-table__btn" href="exerciseFloorAction/find_exerciseFloor?drivingLicenseCostId=${d.drivingLicenseCostId }">
-																		<span class="btn__text">预 约 报 名</span>
-																	</a>
-																</div>
-															</div>
-														</c:when>
-														<c:when test="${d.ct.classTypesName eq '特惠班' }">
-															<div class="col-md-4 col-md-pull-4">
-																<div class="price-table__item">
-																	<div class="price-table__value">￥ ${d.price }
-																	<span class="price-table__discount">特惠</span></div>
-																	<h3 class="price-table__name">${d.ct.classTypesName} ${d.dlt.drivingLicenseTypeName}</h3>
-																	<ul class="price-table__feature-list">
-																		<li class="price-table__feature-item">完整的课程理论</li>
-																		<li class="price-table__feature-item">全驾驶课程</li>
-																		<li class="price-table__feature-item">教练的细心指导</li>
-																		<li class="price-table__feature-item">不含暂住证</li>
-																		<li class="price-table__feature-item">不含练车券</li>
-																		<li class="price-table__feature-item">温馨的服务</li>
-																		<li class="price-table__feature-item">舒心的心理辅导</li>
-																	</ul>
-																	<a class="btn price-table__btn" href="exerciseFloorAction/find_exerciseFloor?drivingLicenseCostId=${d.drivingLicenseCostId }">
-																		<span class="btn__text">预 约 报 名</span>
-																	</a>
-																</div>
-															</div>
-														</c:when>
-														<c:when test="${d.ct.classTypesName eq '大包班' }">
-															<div class="col-md-4">
-																<div class="price-table__item">
-																	<div class="price-table__value">￥ ${d.price }</div>
-																	<h3 class="price-table__name">${d.ct.classTypesName} ${d.dlt.drivingLicenseTypeName}</h3>
-																	<ul class="price-table__feature-list">
-																		<li class="price-table__feature-item">完整的课程理论</li>
-																		<li class="price-table__feature-item">全驾驶课程</li>
-																		<li class="price-table__feature-item">教练的细心指导</li>
-																		<li class="price-table__feature-item">暂住证办理</li>
-																		<li class="price-table__feature-item">不含练车券</li>
-																		<li class="price-table__feature-item">温馨的服务</li>
-																		<li class="price-table__feature-item">舒心的心理辅导</li>
-																	</ul>
-																	<a class="btn price-table__btn" href="exerciseFloorAction/find_exerciseFloor?drivingLicenseCostId=${d.drivingLicenseCostId }">
-																		<span class="btn__text">预 约 报 名</span>
-																	</a>
-																</div>
-															</div>
-														</c:when>
-													</c:choose>
-							</c:forEach>
+																</c:when>
+																<c:when test="${d.ct.classTypesName eq '特惠班' }">
+																	<div class="col-md-4 col-md-pull-4">
+																		<div class="price-table__item">
+																			<div class="price-table__value">￥ ${d.price }
+																			<span class="price-table__discount">特惠</span></div>
+																			<h3 class="price-table__name">${d.ct.classTypesName} ${d.dlt.drivingLicenseTypeName}</h3>
+																			<ul class="price-table__feature-list">
+																				<li class="price-table__feature-item">完整的课程理论</li>
+																				<li class="price-table__feature-item">全驾驶课程</li>
+																				<li class="price-table__feature-item">教练的细心指导</li>
+																				<li class="price-table__feature-item">不含暂住证</li>
+																				<li class="price-table__feature-item">不含练车券</li>
+																				<li class="price-table__feature-item">温馨的服务</li>
+																				<li class="price-table__feature-item">舒心的心理辅导</li>
+																			</ul>
+																			<a class="btn price-table__btn">
+																				<input type="hidden" value="${d.drivingLicenseCostId }">
+																				<span class="btn__text">预 约 报 名</span>
+																			</a>
+																		</div>
+																	</div>
+																</c:when>
+																<c:when test="${d.ct.classTypesName eq '大包班' }">
+																	<div class="col-md-4">
+																		<div class="price-table__item">
+																			<div class="price-table__value">￥ ${d.price }</div>
+																			<h3 class="price-table__name">${d.ct.classTypesName} ${d.dlt.drivingLicenseTypeName}</h3>
+																			<ul class="price-table__feature-list">
+																				<li class="price-table__feature-item">完整的课程理论</li>
+																				<li class="price-table__feature-item">全驾驶课程</li>
+																				<li class="price-table__feature-item">教练的细心指导</li>
+																				<li class="price-table__feature-item">暂住证办理</li>
+																				<li class="price-table__feature-item">不含练车券</li>
+																				<li class="price-table__feature-item">温馨的服务</li>
+																				<li class="price-table__feature-item">舒心的心理辅导</li>
+																			</ul>
+																			<a class="btn price-table__btn">
+																				<input type="hidden" value="${d.drivingLicenseCostId }">
+																				<span class="btn__text">预 约 报 名</span>
+																			</a>
+																		</div>
+																	</div>
+																</c:when>
+															</c:choose>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 						</c:otherwise>
 					</c:choose>
 				</div>
 			</div>
+			<input type="hidden" id="practiceCarVoucherserror" value="${requestScope.practiceCarVoucherserror }">
 			<div class="course course_theme_light" style="margin-top:50px;">
 				<div class="container">
 					<h2 class="title">其 他
@@ -373,7 +387,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<div class="course__item-popup">
 											<div class="course__item-popup-name">${o.moreInfo }</div>
 											<div class="course__item-popup-action">
-												<a class="btn" href="">
+												<a class="btn btn_fullwidth" onclick="otherCostAlipay(this)">
+													<input type="hidden" value="${o.otherCostId }">
 													<span class="btn__text">购 买</span>
 												</a>
 											</div>
@@ -680,6 +695,77 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script src="assets/scripts/rome.min.js"></script>
 		<script src="assets/scripts/isotope.pkgd.min.js"></script>
 		<script src="assets/scripts/app.min.js"></script>
+		<script>
+			$().ready(
+				function()
+				{
+					var practiceCarVoucherserror=$("#practiceCarVoucherserror").val();
+					if(practiceCarVoucherserror.length>0&&practiceCarVoucherserror=="true")
+					{
+						alert("抱歉,您的练车券已用完,包车培训需要练车券,请购买练车券!");
+					}
+					var otherCostAlipayresult='${requestScope.otherCostAlipayresult}';
+					if(otherCostAlipayresult.length>0&&otherCostAlipayresult=="false")
+					{
+						alert("抱歉,支付失败,请重试或联系平台客服 150 9307 7197");
+					}
+				}
+			);
+			$(".price-table__btn").click(
+				function()
+				{
+					var drivingLicenseCostId=$(this).children("input").val();
+					var stateId='${requestScope.studentApply.stateId }';
+					if(stateId.length==0)
+					{
+						window.location.href="exerciseFloorAction/find_exerciseFloor?drivingLicenseCostId="+drivingLicenseCostId;
+					}
+					else
+					{
+						alert("抱歉,您已购买过驾考套餐,不能重复购买!");
+					}
+				}
+			);
+			function otherCostAlipay(data)
+			{
+				var supplementaryExamination='${requestScope.studentApply.supplementaryExamination}';//补考状态
+				var ClassTypesId='${requestScope.studentApply.classTypesId}';//班级类别
+				var otherCostId=$(data).children("input").val();
+				if(otherCostId=="4a7e5903-02a3-4d68-8333-3fab2183a059")
+				{
+					if(ClassTypesId=="cba61b77-4fc8-4257-8fc9-861ab5f6871b"||ClassTypesId=="2eacb980-478b-46e2-a9b4-b4369950a1cd")
+					{
+						alert("您购买的驾考套餐无需购买暂住证,本平台帮您代办!");
+					}
+					else
+					{
+						window.location.href="orderInfoAction/insert_orderInfo?otherCostId="+otherCostId;
+					}
+				}
+				else if(otherCostId=="9bae02f5-e900-4c10-b014-3302b3a90a46")
+				{
+					if(ClassTypesId=="2eacb980-478b-46e2-a9b4-b4369950a1cd")
+					{
+						alert("您购买的驾考套餐无需购买练车券,前去预约练车即可!");
+					}
+					else
+					{
+						window.location.href="orderInfoAction/insert_orderInfo?otherCostId="+otherCostId;
+					}
+				}
+				else if(otherCostId=="1dc5bf46-58eb-4d7f-84f6-db1e67835420")
+				{
+					if(supplementaryExamination=="true")
+					{
+						alert("您当前无需缴纳补考费,前去预约考试即可!");
+					}
+					else
+					{
+						window.location.href="orderInfoAction/insert_orderInfo?otherCostId="+otherCostId;
+					}
+				}
+			}
+		</script>
 	</body>
 
 </html>

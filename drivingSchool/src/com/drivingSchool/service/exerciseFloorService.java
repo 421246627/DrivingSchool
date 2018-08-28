@@ -19,4 +19,8 @@ public class exerciseFloorService
 	{
 		return exercisefloordaoimpl.find_exerciseFloor();
 	}
+	public exerciseFloor find_exerciseFloorByexerciseFloorId(String exerciseFloorId)
+	{
+		return exercisefloordaoimpl.find_exerciseFloorByexerciseFloorId(exerciseFloorId);
+	}
 }

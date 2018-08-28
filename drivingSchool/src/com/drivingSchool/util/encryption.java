@@ -1,7 +1,11 @@
 package com.drivingSchool.util;
 
 import java.security.MessageDigest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
+
 import org.springframework.stereotype.Component;
 @Component
 public class encryption 
@@ -42,5 +46,19 @@ public class encryption
 	{
 		UUID uuid=UUID.randomUUID();
 		return uuid.toString();
+	}
+	/**
+	 * 计算两个时间是否相等
+	 * @param date1
+	 * @param date2
+	 * @return
+	 * @throws ParseException
+	 */
+	public int getDateAreequal(String date1,String date2) throws ParseException
+	{
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		Date date3=sdf.parse(date1);
+		Date date4=sdf.parse(date2);
+		return date3.compareTo(date4);
 	}
 }

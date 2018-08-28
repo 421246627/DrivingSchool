@@ -1,5 +1,6 @@
 package com.drivingSchool.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -40,5 +41,13 @@ public class test {
 		UUID uuid=UUID.randomUUID();
 		System.out.println(uuid);
 	}
-
+	/*public static void main(String[] args) throws ParseException 
+	{
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		Date date=sdf.parse("2018-08-23 15:00");
+		Date dates=sdf.parse(new Date().toLocaleString());
+		System.out.println(date);
+		System.out.println(date.toLocaleString());
+		System.out.println(date.compareTo(dates));
+	}*/
 }

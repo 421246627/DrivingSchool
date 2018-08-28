@@ -16,8 +16,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="jquery/jquery-1.9.1.js"></script>
+	<link rel="stylesheet" href="bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+	<script src="bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<style>
+		#startTime
+		{
+			width:230px;
+		}
+	</style>
   </head>
 <body>
-  		<div style="width:800px;margin:auto;"><p style="border-bottom:1px solid #CCCCCC;padding:10px 0px;"><span style="font-family:Montserrat;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:25px;">driving school</span></p><p style="font-size:18px;">尊敬的用户:</p><p>您已成为本校的一名学员,为了学习新的驾考知识,您需要前往本校网站的个人中心,提前预约体检,谢谢合作!</p><p>体检所需材料:身份证</p><p style="margin-top:50px;border-top:1px solid #CCCCCC;padding:10px 0px;color:#CCCCCC;">此为系统邮件，请勿回复；©driving school 2004-2018 All Right Reserved</p></div>
+	<input type="text" class="time-input form-control" id="startTime" placeholder="起始日期" name="begin_time" readonly class="form_datetime">
 </body>
+<script type="text/javascript">
+//日期插件
+$("#startTime").datetimepicker({
+format: 'yyyy-mm-dd',//显示格式
+todayHighlight: 1,//今天高亮
+minView: "month",//设置只显示到月份
+startView:2,
+forceParse: 0,
+showMeridian: 1,
+autoclose: 1,//选择后自动关闭
+language: 'cn',
+startDate:new Date(),
+daysOfWeekDisabled:[0,4,3,1,6],
+keyboardNavigation:false
+});
+</script>
+
 </html>

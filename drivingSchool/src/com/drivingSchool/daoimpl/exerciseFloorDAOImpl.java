@@ -19,4 +19,11 @@ public class exerciseFloorDAOImpl extends BaseDAO implements exerciseFloorDAO
 		return super.query_executeFind(hql, null);
 	}
 
+	@Override
+	public exerciseFloor find_exerciseFloorByexerciseFloorId(
+			String exerciseFloorId) 
+	{
+		return super.get(exerciseFloor.class,exerciseFloorId);
+	}
+
 }

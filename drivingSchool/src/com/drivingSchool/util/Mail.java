@@ -42,7 +42,7 @@ public class Mail
         // 3. To: 收件人（可以增加多个收件人、抄送、密送）
         message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail,receiveMail,"UTF-8"));
         // 4. Subject: 邮件主题（标题有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改标题）
-        message.setSubject("绑定邮箱账户验证码", "UTF-8");
+        message.setSubject("DrivingSchool", "UTF-8");
         // 5. Content: 邮件正文（可以使用html标签）（内容有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改发送内容）
         message.setContent(Content,"text/html;charset=UTF-8");
         // 6. 设置发件时间

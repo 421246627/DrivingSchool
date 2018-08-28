@@ -10,15 +10,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>My JSP 'insert_book.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
+   <meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<link rel="alternate icon" type="image/png" href="assets/images/logo.png"><!--在title添加logo  -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="imagetoolbar" content="no">
+		<meta name="msthemecompatible" content="no">
+		<meta name="cleartype" content="on">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="address=no">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link sizes="57x57" href="apple-touch-icon-57x57.png" rel="apple-touch-icon">
+		<link sizes="114x114" href="apple-touch-icon-114x114.png" rel="apple-touch-icon">
+		<link sizes="72x72" href="apple-touch-icon-72x72.png" rel="apple-touch-icon">
+		<link sizes="144x144" href="apple-touch-icon-144x144.png" rel="apple-touch-icon">
+		<link sizes="60x60" href="apple-touch-icon-60x60.png" rel="apple-touch-icon">
+		<link sizes="120x120" href="apple-touch-icon-120x120.png" rel="apple-touch-icon">
+		<link sizes="76x76" href="apple-touch-icon-76x76.png" rel="apple-touch-icon">
+		<link sizes="152x152" href="apple-touch-icon-152x152.png" rel="apple-touch-icon">
+		<link sizes="180x180" href="apple-touch-icon-180x180.png" rel="apple-touch-icon">
+		<link sizes="192x192" href="favicon-192x192.png" rel="icon" type="image/png">
+		<link sizes="160x160" href="favicon-160x160.png" rel="icon" type="image/png">
+		<link sizes="96x96" href="favicon-96x96.png" rel="icon" type="image/png">
+		<link sizes="16x16" href="favicon-16x16.png" rel="icon" type="image/png">
+		<link sizes="32x32" href="favicon-32x32.png" rel="icon" type="image/png">
+		<link rel="manifest" href="manifest.json">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="assets/styles/app.min.css" rel="stylesheet">
 	<script src="jquery/jquery-1.9.1.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
@@ -30,10 +57,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 			#usertable
 			{
-				width:600px;
+				width:100%;
 				height:200px;
 				display:inline-block;
-				margin:0px 22.5px;
+				margin:0px;
+				border:1px solid red;
 			}
 			#usertable #td1,#usertable #bindEmail
 			{
@@ -86,21 +114,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				vertical-align:top;<!--添加文本之后div偏离原来位置添加该句即可 -->
 				
 			}
+			body
+			{
+				background-color:#F5F9FC;
+			}
 		</style>
   </head>
-  <body>
-<div id="userbody">
-<div id="photo" style="background-image:url(${sessionScope.user.photo});background-size:100% 100%;"><a>修改头像</a></div><table id="usertable">
-<tr>
- 	<td id="td1">${sessionScope.user.userName }</td><td id="td2"><a  data-toggle="modal" data-target="#updateusername">修改名称</a></td>
-</tr>
-<tr>
-	<td id="bindEmail">${sessionScope.user.bindEmail }</td><td id="td2"><a data-toggle="modal" data-target="#updatebindemail" id="updatebindemaila">修改绑定邮箱</a></td>
-</tr>
-<tr>
-	<td id="td2" colspan="2"><a data-toggle="modal" data-target="#updateuserPassword" id="updateuserPassworda">修改密码</a></td>
-</tr>
-</table>
+<body class="page">
+<div class="content">
+	<div class="address">
+		<h2 class="title"><span class="title__mark">个 人 </span>信 息</h2>
+		<div class="address__data container" style="margin-top:50px;">
+			<div class="row">
+				<div class="data col-md-4">
+					<div class="address__data-item">
+						<span class="address__data-value"><div id="photo" style="background-image:url(${sessionScope.user.photo});background-size:100% 100%;"><a>修改头像</a></div></span>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="address__data-item">
+						<span class="address__data-value">${sessionScope.user.userName }</span>
+						<span class="address__data-value" id="bindEmail">${sessionScope.user.bindEmail }</span>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="address__data-item">
+						<span class="address__data-value"><a  data-toggle="modal" data-target="#updateusername">修改名称</a></span>
+						<span class="address__data-value"><a data-toggle="modal" data-target="#updatebindemail" id="updatebindemaila">修改绑定邮箱</a></span>
+						<span class="address__data-value"><a data-toggle="modal" data-target="#updateuserPassword" id="updateuserPassworda">修改密码</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="modal fade" id="updateusername" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
 	  <div class="modal-dialog" role="document">
@@ -119,8 +165,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </form>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	        <button type="button" id="updateusernamebutton" class="btn btn-primary" data-dismiss="modal">提交</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#FFEA00;border:0;color:black;">关闭</button>
+	        <button type="button" id="updateusernamebutton" class="btn btn-primary" data-dismiss="modal" style="background-color:#FFEA00;border:0;color:black;"">提交</button>
 	      </div>
 	    </div>
 	  </div>
@@ -146,8 +192,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </form>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	        <a id="updatebindEmailbutton" class="btn btn-primary">提交</a>
+	        <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#FFEA00;border:0;color:black;">关闭</button>
+	        <button id="updatebindEmailbutton" class="btn btn-primary" style="background-color:#FFEA00;border:0;color:black;">提交</button>
 	      </div>
 	    </div>
 	  </div>
@@ -179,8 +225,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </form>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	        <a id="updateuserPasswordbutton" class="btn btn-primary">提交</a>
+	        <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#FFEA00;border:0;color:black;">关闭</button>
+	        <button id="updateuserPasswordbutton" class="btn btn-primary" style="background-color:#FFEA00;border:0;color:black;">提交</button>
 	      </div>
 	    </div>
 	  </div>

@@ -18,4 +18,10 @@ public class otherCostDAOImpl extends BaseDAO implements  otherCostDAO
 		return super.query_executeFind(hql,null);
 	}
 
+	@Override
+	public otherCost find_otherCostByotherCostId(String otherCostId) 
+	{
+		return super.get(otherCost.class,otherCostId);
+	}
+
 }

@@ -11,7 +11,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-@Table(name="exerciseFloor")
+@Table
 @Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class exerciseFloor implements Serializable
 {

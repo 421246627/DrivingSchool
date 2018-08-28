@@ -5,7 +5,6 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -47,6 +46,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 		<link href="assets/styles/app.min.css" rel="stylesheet">
+		<style>
+			br{
+				text-align:center;
+			}
+		</style>
   </head>
   <body class="page">
 		<div class="header">
@@ -187,7 +191,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="form__row row">
 							<div class="form__row-mobile col-md-6">
 								<div class="control-group control-group_fullwidth">
-									<span class="control-remark control-group__item">u</span>
+									<span class="control-remark control-group__item">n</span>
 									<span class="inp">
 										<span class="inp__box">
 											<input class="inp__control" type="text" id="studentName" name="studentapply.studentName" placeholder="请输入您的姓名..." />

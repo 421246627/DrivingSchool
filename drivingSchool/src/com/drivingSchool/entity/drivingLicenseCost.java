@@ -14,7 +14,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name="drivingLicenseCost")
-@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class drivingLicenseCost implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String drivingLicenseCostId;

@@ -27,11 +27,12 @@ public class AlipayConfig {
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwO+8yfRTKCyi7uLLxo42zpuBmqhIWN7oD2GprwAN5tlJcVr8LyBEDW7iBD+ec2PkbS+mSMiKmqsVuRIlplRS/+9EYUrYNfns3kf8AvFdBxCSfrxKeEdhmEUHQVa9k2yKGBWNTY1DXmMWHnKYVXspxhh8OzcUzipJW3ww5O8qVnY2ExCj+dLw4nbu5ZYsg8H0xoMQspGp44F2N9jpm+sdGeRW5jvVxD2xT1QFwQyLTOoT5izzIeXVPoM+/9CbEyynCsUXXKyldzRwDRX06sSXOvCjlEUPIKpn6P3rr0odP/gTBnP6jJpBGhZ6HnJkHkgGj2CTi1D6hokOayiKCO4qBwIDAQAB";
 
 	// 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String notify_url = "http://5ccz7z.natappfree.cc/drivingSchool/notify_url.jsp";
+	public static String notify_url = "http://ryp96t.natappfree.cc/drivingSchool/notify_url.jsp";
 
 	// 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String studentApplyreturn_url = "http://jtiqhf.natappfree.cc/drivingSchool/alipayAction/studentApplyreturn_url";
-	public static String return_url = "http://jtiqhf.natappfree.cc/drivingSchool/alipayAction/return_url";
+	public static String studentApplyreturn_url = "http://unaixp.natappfree.cc/drivingSchool/alipayAction/studentApplyreturn_url";
+	public static String otherCostreturn_url = "http://unaixp.natappfree.cc/drivingSchool/alipayAction/otherCostreturn_url";
+	public static String return_url = "http://unaixp.natappfree.cc/drivingSchool/alipayAction/return_url";
 	// 签名方式
 	public static String sign_type = "RSA2";
 	

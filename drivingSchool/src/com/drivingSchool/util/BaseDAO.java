@@ -3,8 +3,6 @@ package com.drivingSchool.util;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -154,7 +152,6 @@ public class BaseDAO {
 		{
 			getSession();
 			SQLQuery sqlquery=session.createSQLQuery(sql);
-			sqlquery.setCacheable(true);
 			setParams(sqlquery,params,parammap);
 			list=sqlquery.list();
 		}
@@ -191,6 +188,7 @@ public class BaseDAO {
 		{
 			getSession();
 			SQLQuery sqlquery=session.createSQLQuery(sql);
+			sqlquery.setCacheable(true);
 			setParams(sqlquery,params,parammap);
 			result=sqlquery.executeUpdate();
 		}

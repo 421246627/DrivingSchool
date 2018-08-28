@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="row">
 					<div class="col-md-5">
 						<div class="logo">
-							<a href="index.jsp" class="logo__link">
+							<a href="index.html" class="logo__link">
 								<svg class="logo__icon"><use xlink:href="assets/images/icon.svg#icon_logo"></use></svg>
 								<span class="logo__text">driving school</span>
 							</a>
@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div class="header__contact col-md-2">
 						<a class="btn header__callback" href="">
-							<span class="btn__text">联系我们</span>
+							<span class="btn__text">联 系 我 们</span>
 						</a>
 					</div>
 				</div>
@@ -153,10 +153,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="address.html" class="nav__link">contacts</a>
 							</li>
 							<li class="nav__item">
-								<a href="teachers.html" class="nav__link nav__link_has-sub">teachers</a>
+								<a href="coachAction/load_coach" class="nav__link nav__link_has-sub">预 约 教 练</a>
 								<ul class="nav__sub">
 									<li class="nav__item">
-										<a href="teachers.html" class="nav__link">teachers</a>
+										<a href="coachAction/load_coach" class="nav__link">预 约 教 练</a>
 									</li>
 									<li class="nav__item">
 										<a href="teacher.html" class="nav__link">Teacher Profile</a>
@@ -529,7 +529,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 															<li class="price-table__feature-item">温馨的服务</li>
 															<li class="price-table__feature-item">舒心的心理辅导</li>
 														</ul>
-														<a class="btn price-table__btn" href="exerciseFloorAction/find_exerciseFloor?drivingLicenseCostId=${d.drivingLicenseCostId }">
+														<a class="btn price-table__btn" href="drivingLicenseCostAction/find_drivingLicenseCost">
 															<span class="btn__text">预 约 报 名</span>
 														</a>
 														<div class="price-table__stars">
@@ -555,7 +555,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 															<li class="price-table__feature-item">温馨的服务</li>
 															<li class="price-table__feature-item">舒心的心理辅导</li>
 														</ul>
-														<a class="btn price-table__btn" href="exerciseFloorAction/find_exerciseFloor?drivingLicenseCostId=${d.drivingLicenseCostId }">
+														<a class="btn price-table__btn" href="drivingLicenseCostAction/find_drivingLicenseCost">
 															<span class="btn__text">预 约 报 名</span>
 														</a>
 													</div>
@@ -575,7 +575,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 															<li class="price-table__feature-item">温馨的服务</li>
 															<li class="price-table__feature-item">舒心的心理辅导</li>
 														</ul>
-														<a class="btn price-table__btn" href="exerciseFloorAction/find_exerciseFloor?drivingLicenseCostId=${d.drivingLicenseCostId }">
+														<a class="btn price-table__btn" href="drivingLicenseCostAction/find_drivingLicenseCost">
 															<span class="btn__text">预 约 报 名</span>
 														</a>
 													</div>
@@ -770,7 +770,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<div class="course__item-popup">
 											<div class="course__item-popup-name">${o.moreInfo }</div>
 											<div class="course__item-popup-action">
-												<a class="btn" href="">
+												<a class="btn" href="drivingLicenseCostAction/find_drivingLicenseCost">
 													<span class="btn__text">购 买</span>
 												</a>
 											</div>

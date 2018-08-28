@@ -5,7 +5,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -13,7 +16,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table
-@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class studentApply implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -26,13 +28,14 @@ public class studentApply implements Serializable
 	private String studentPhoto;
 	private String emailAddress;
 	private String exerciseFloorId;
+	private exerciseFloor exerciseFloor;
 	private String drivingLicenseTypeId;
 	private String ClassTypesId;
 	private String stateId;
 	private String subjectTypeId;
 	private Date applyDate;
-	private String transactionNumber;
-	private String alipayOrderId;
+	private Integer practiceCarVouchers;
+	private String supplementaryExamination;
 	@Id
 	@Column
 	public String getStudentApplyId() {
@@ -90,7 +93,7 @@ public class studentApply implements Serializable
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
-	@Column
+	@Column(insertable=false,updatable=false)
 	public String getExerciseFloorId() {
 		return exerciseFloorId;
 	}
@@ -132,26 +135,35 @@ public class studentApply implements Serializable
 	public void setApplyDate(Date applyDate) {
 		this.applyDate = applyDate;
 	}
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="exerciseFloorId")
+	public exerciseFloor getExerciseFloor() {
+		return exerciseFloor;
+	}
+	public void setExerciseFloor(exerciseFloor exerciseFloor) {
+		this.exerciseFloor = exerciseFloor;
+	}
 	@Column
-	public String getTransactionNumber() {
-		return transactionNumber;
+	public Integer getPracticeCarVouchers() {
+		return practiceCarVouchers;
 	}
-	public void setTransactionNumber(String transactionNumber) {
-		this.transactionNumber = transactionNumber;
+	public void setPracticeCarVouchers(Integer practiceCarVouchers) {
+		this.practiceCarVouchers = practiceCarVouchers;
 	}
 	@Column
-	public String getAlipayOrderId() {
-		return alipayOrderId;
+	public String getSupplementaryExamination() {
+		return supplementaryExamination;
 	}
-	public void setAlipayOrderId(String alipayOrderId) {
-		this.alipayOrderId = alipayOrderId;
+	public void setSupplementaryExamination(String supplementaryExamination) {
+		this.supplementaryExamination = supplementaryExamination;
 	}
 	public studentApply(String studentApplyId, String userId,
 			String studentName, String sex, String identityCard, String phone,
 			String studentPhoto, String emailAddress, String exerciseFloorId,
+			com.drivingSchool.entity.exerciseFloor exerciseFloor,
 			String drivingLicenseTypeId, String classTypesId, String stateId,
-			String subjectTypeId, Date applyDate, String transactionNumber,
-			String alipayOrderId) {
+			String subjectTypeId, Date applyDate, Integer practiceCarVouchers,
+			String supplementaryExamination) {
 		super();
 		this.studentApplyId = studentApplyId;
 		this.userId = userId;
@@ -162,13 +174,14 @@ public class studentApply implements Serializable
 		this.studentPhoto = studentPhoto;
 		this.emailAddress = emailAddress;
 		this.exerciseFloorId = exerciseFloorId;
+		this.exerciseFloor = exerciseFloor;
 		this.drivingLicenseTypeId = drivingLicenseTypeId;
 		ClassTypesId = classTypesId;
 		this.stateId = stateId;
 		this.subjectTypeId = subjectTypeId;
 		this.applyDate = applyDate;
-		this.transactionNumber = transactionNumber;
-		this.alipayOrderId = alipayOrderId;
+		this.practiceCarVouchers = practiceCarVouchers;
+		this.supplementaryExamination = supplementaryExamination;
 	}
 	public studentApply() {
 		super();

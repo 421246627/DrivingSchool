@@ -1,14 +1,10 @@
 package com.drivingSchool.service;
 
 import java.io.File;
-import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.drivingSchool.daoimpl.usersDAOImpl;
 import com.drivingSchool.entity.users;
 import com.drivingSchool.util.Uploads;

@@ -20,6 +20,7 @@ public class otherCost implements Serializable
 	private String otherCostName;
 	private double price;
 	private String moreInfo;
+	private String orderTypeId;
 	@Id
 	@Column
 	public String getOtherCostId() {
@@ -49,13 +50,21 @@ public class otherCost implements Serializable
 	public void setMoreInfo(String moreInfo) {
 		this.moreInfo = moreInfo;
 	}
+	@Column
+	public String getOrderTypeId() {
+		return orderTypeId;
+	}
+	public void setOrderTypeId(String orderTypeId) {
+		this.orderTypeId = orderTypeId;
+	}
 	public otherCost(String otherCostId, String otherCostName, double price,
-			String moreInfo) {
+			String moreInfo, String orderTypeId) {
 		super();
 		this.otherCostId = otherCostId;
 		this.otherCostName = otherCostName;
 		this.price = price;
 		this.moreInfo = moreInfo;
+		this.orderTypeId = orderTypeId;
 	}
 	public otherCost() {
 		super();
