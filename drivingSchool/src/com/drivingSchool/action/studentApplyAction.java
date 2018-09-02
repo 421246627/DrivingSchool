@@ -19,6 +19,7 @@ import com.drivingSchool.entity.users;
 import com.drivingSchool.service.drivingLicenseCostService;
 import com.drivingSchool.service.exerciseFloorService;
 import com.drivingSchool.service.orderInfoService;
+import com.drivingSchool.service.stateService;
 import com.drivingSchool.service.studentApplyService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -40,6 +41,8 @@ public class studentApplyAction extends ActionSupport
 	private exerciseFloorService exercisefloorservice;
 	@Autowired
 	private orderInfoService orderinfoservice;
+	@Autowired
+	private stateService stateservice;
 	private ActionContext actioncontext=ActionContext.getContext();
 	private Map<String,Object>session=actioncontext.getSession();
 	@SuppressWarnings("unchecked")
@@ -65,8 +68,9 @@ public class studentApplyAction extends ActionSupport
 		o.setOrderInfoName(dlc.getDlt().getDrivingLicenseTypeName()+" "+dlc.getCt().getClassTypesName());
 		o.setOrderInfoPrice(dlc.getPrice());
 		o.setAlipayOrderId(encryption.getUUID());//支付宝订单号
+		o.setOrderTypeId("ded39f91-dbbb-4262-93c3-12fae2cc10b1");
 		o.setStudentApplyId(studentapply.getStudentApplyId());
-		o.setStateId("554a242a-b6a1-491f-bf95-2f3b9bd4cef2");//设置为待支付
+		o.setState(stateservice.find_stateBystateId("554a242a-b6a1-491f-bf95-2f3b9bd4cef2"));//设置为待支付
 		if(studentapply.getClassTypesId().equals("cba61b77-4fc8-4257-8fc9-861ab5f6871b"))//大包班练车券5张,特惠班练车券0张
 		{
 			studentapply.setPracticeCarVouchers(5);
@@ -106,9 +110,29 @@ public class studentApplyAction extends ActionSupport
 		stu.setSex(studentapply.getSex());
 		stu.setExerciseFloor(exercisefloorservice.find_exerciseFloorByexerciseFloorId(studentapply.getExerciseFloorId()));
 		orderInfo o=orderinfoservice.find_orderInfoBystudentApplyId(stu.getStudentApplyId(),"ded39f91-dbbb-4262-93c3-12fae2cc10b1");
-		o.setOrderInfoName(dlc.getDlt().getDrivingLicenseTypeName()+" "+dlc.getCt().getClassTypesName());
-		o.setOrderInfoPrice(dlc.getPrice());
-		o.setAlipayOrderId(encryption.getUUID());//支付宝订单号
+		boolean flag=false;
+		if(null==o)
+		{
+			o=new orderInfo();
+			o.setOrderInfoId(encryption.getUUID());
+			o.setOrderInfoName(dlc.getDlt().getDrivingLicenseTypeName()+" "+dlc.getCt().getClassTypesName());
+			o.setOrderInfoPrice(dlc.getPrice());
+			o.setOrderTypeId("ded39f91-dbbb-4262-93c3-12fae2cc10b1");
+			o.setAlipayOrderId(encryption.getUUID());//支付宝订单号
+			o.setStudentApplyId(stu.getStudentApplyId());
+			o.setState(stateservice.find_stateBystateId("554a242a-b6a1-491f-bf95-2f3b9bd4cef2"));//设置为待支付
+			if(null!=orderinfoservice.insert_orderInfo(o))
+			{
+				flag=true;
+			}
+		}
+		else
+		{
+			o.setOrderInfoName(dlc.getDlt().getDrivingLicenseTypeName()+" "+dlc.getCt().getClassTypesName());
+			o.setOrderInfoPrice(dlc.getPrice());
+			o.setAlipayOrderId(encryption.getUUID());//支付宝订单号
+			flag=orderinfoservice.update_orderInfo(o);
+		}
 		if(stu.getClassTypesId().equals("cba61b77-4fc8-4257-8fc9-861ab5f6871b"))//大包班练车券5张,特惠班练车券0张
 		{
 			stu.setPracticeCarVouchers(5);
@@ -117,7 +141,7 @@ public class studentApplyAction extends ActionSupport
 		{
 			stu.setPracticeCarVouchers(0);
 		}
-		if(studentApplyservice.update_studentApply(stu)&&orderinfoservice.update_orderInfo(o))
+		if(studentApplyservice.update_studentApply(stu)&&flag)
 		{
 			request.put("WIDout_trade_no",o.getAlipayOrderId());//支付宝订单编号
 			request.put("WIDsubject",dlc.getDlt().getDrivingLicenseTypeName()+" "+dlc.getCt().getClassTypesName());//支付宝订单名称

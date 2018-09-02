@@ -76,4 +76,13 @@ public class orderInfoService
 		else
 		return null;
 	}
+	/**
+	 * 通过学生编号查询订单
+	 * @param studentApplyId
+	 * @return
+	 */
+	public List<orderInfo> find_orderInfoBystudentApplyId(String studentApplyId)
+	{
+		return orderInfodaoimpl.find_orderInfoBystudentApplyId(studentApplyId);
+	}
 }

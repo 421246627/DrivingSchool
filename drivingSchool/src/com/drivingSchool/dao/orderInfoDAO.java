@@ -40,4 +40,10 @@ public interface orderInfoDAO
 	 * @return
 	 */
 	public List<orderInfo> find_orderInfoByorderTypeIdAndstudentApplyIdAndstateId(String orderTypeId,String studentApplyId,String stateId);
+	/**
+	 * 根据学生编号查询
+	 * @param studentApplyId
+	 * @return
+	 */
+	public List<orderInfo> find_orderInfoBystudentApplyId(String studentApplyId);
 }

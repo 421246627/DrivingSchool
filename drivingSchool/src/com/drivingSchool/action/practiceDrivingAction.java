@@ -1,6 +1,5 @@
 package com.drivingSchool.action;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
@@ -38,12 +37,31 @@ public class practiceDrivingAction extends ActionSupport
 	private Map<String,Object> session=actioncontext.getSession();
 	private String coachId;
 	private String appointmentDate;
+	private String practiceDrivingId;
 	@Action(value="Cancel_practiceDriving",results={@Result(name="success",type="chain",params={"namespace","/coachAction"},location="load_coach"),@Result(name="error",type="chain",params={"namespace","/coachAction"},location="load_coach")})
 	public String Cancel_practiceDriving()
 	{
 		try
 		{
 			if(practicedrivingservice.cancle_practiceDrivingBypracticeDrivingId(practicedriving.getPracticeDrivingId()))
+			return SUCCESS;
+			else
+			request.put("cancel_practiceDrivingresult","false");
+			return ERROR;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			request.put("cancel_practiceDrivingresult","false");
+			return ERROR;
+		}
+	}
+	@Action(value="Cancel_practiceDriving2",results={@Result(name="success",type="chain",params={"namespace","/myReservationAction"},location="load_myReservationAction"),@Result(name="error",type="chain",params={"namespace","/myReservationAction"},location="load_myReservationAction")})
+	public String Cancel_practiceDriving2()
+	{
+		try
+		{
+			if(practicedrivingservice.cancle_practiceDrivingBypracticeDrivingId(practiceDrivingId))
 			return SUCCESS;
 			else
 			request.put("cancel_practiceDrivingresult","false");
@@ -218,5 +236,11 @@ public class practiceDrivingAction extends ActionSupport
 	}
 	public void setAppointmentDate(String appointmentDate) {
 		this.appointmentDate = appointmentDate;
+	}
+	public String getPracticeDrivingId() {
+		return practiceDrivingId;
+	}
+	public void setPracticeDrivingId(String practiceDrivingId) {
+		this.practiceDrivingId = practiceDrivingId;
 	}
 }

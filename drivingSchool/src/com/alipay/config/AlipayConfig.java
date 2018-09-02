@@ -30,9 +30,9 @@ public class AlipayConfig {
 	public static String notify_url = "http://ryp96t.natappfree.cc/drivingSchool/notify_url.jsp";
 
 	// 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String studentApplyreturn_url = "http://unaixp.natappfree.cc/drivingSchool/alipayAction/studentApplyreturn_url";
-	public static String otherCostreturn_url = "http://unaixp.natappfree.cc/drivingSchool/alipayAction/otherCostreturn_url";
-	public static String return_url = "http://unaixp.natappfree.cc/drivingSchool/alipayAction/return_url";
+	public static String studentApplyreturn_url = "http://dmd3wp.natappfree.cc/drivingSchool/alipayAction/studentApplyreturn_url";
+	public static String otherCostreturn_url = "http://dmd3wp.natappfree.cc/drivingSchool/alipayAction/otherCostreturn_url";
+	public static String return_url = "http://dmd3wp.natappfree.cc/drivingSchool/alipayAction/return_url";
 	// 签名方式
 	public static String sign_type = "RSA2";
 	

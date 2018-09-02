@@ -24,6 +24,7 @@ public class practiceDriving implements Serializable
 	private String coachId;
 	private coach coach;
 	private String stateId;
+	private state state;
 	private Date appointmentDate;
 	private String classTypesId;
 	@Id
@@ -48,7 +49,7 @@ public class practiceDriving implements Serializable
 	public void setCoachId(String coachId) {
 		this.coachId = coachId;
 	}
-	@Column
+	@Column(insertable=false,updatable=false)
 	public String getStateId() {
 		return stateId;
 	}
@@ -77,15 +78,25 @@ public class practiceDriving implements Serializable
 	public void setCoach(coach coach) {
 		this.coach = coach;
 	}
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="stateId")
+	public state getState() {
+		return state;
+	}
+	public void setState(state state) {
+		this.state = state;
+	}
 	public practiceDriving(String practiceDrivingId, String studentApplyId,
 			String coachId, com.drivingSchool.entity.coach coach,
-			String stateId, Date appointmentDate, String classTypesId) {
+			String stateId, com.drivingSchool.entity.state state,
+			Date appointmentDate, String classTypesId) {
 		super();
 		this.practiceDrivingId = practiceDrivingId;
 		this.studentApplyId = studentApplyId;
 		this.coachId = coachId;
 		this.coach = coach;
 		this.stateId = stateId;
+		this.state = state;
 		this.appointmentDate = appointmentDate;
 		this.classTypesId = classTypesId;
 	}

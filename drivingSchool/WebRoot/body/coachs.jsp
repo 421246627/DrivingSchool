@@ -89,27 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="nav__close"></div>
 						<ul class="nav__list">
 							<li class="nav__item">
-								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link nav__link_has-sub nav__link_active">主 页</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-moto.html" class="nav__link">Motorcycle Training</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-ext.html" class="nav__link">Extremal Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-dop.html" class="nav__link">Safety Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing-inst.html" class="nav__link">Personal Teacher</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing.html" class="nav__link">Selection of teachers</a>
-									</li>
-								</ul>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
 							</li>
 							<li class="nav__item">
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
@@ -121,41 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
-								<a href="faq.html" class="nav__link">faq</a>
-							</li>
-							<li class="nav__item">
-								<a href="course.html" class="nav__link">courses</a>
-							</li>
-							<li class="nav__item">
-								<a href="review.html" class="nav__link">reviews</a>
-							</li>
-							<li class="nav__item">
-								<a href="photo.html" class="nav__link">photo</a>
-							</li>
-							<li class="nav__item">
-								<a href="blog.html" class="nav__link nav__link_has-sub">blog</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="blog.html" class="nav__link">Page Blog</a>
-									</li>
-									<li class="nav__item">
-										<a href="article.html" class="nav__link">Single Blog</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav__item">
-								<a href="address.html" class="nav__link">contacts</a>
-							</li>
-							<li class="nav__item">
-								<a href="coachAction/load_coach" class="nav__link nav__link_has-sub">预 约 教 练</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="coachAction/load_coach" class="nav__link">预 约 教 练</a>
-									</li>
-									<li class="nav__item">
-										<a href="teacher.html" class="nav__link">Teacher Profile</a>
-									</li>
-								</ul>
+								<a href="coachAction/load_coach" class="nav__link">预 约 教 练</a>
 							</li>
 						</ul>
 					</div>
@@ -423,27 +369,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="nav__close"></div>
 						<ul class="nav__list">
 							<li class="nav__item">
-								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link nav__link_has-sub nav__link_active">主 页</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-moto.html" class="nav__link">Motorcycle Training</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-ext.html" class="nav__link">Extremal Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-dop.html" class="nav__link">Safety Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing-inst.html" class="nav__link">Personal Teacher</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing.html" class="nav__link">Selection of teachers</a>
-									</li>
-								</ul>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
 							</li>
 							<li class="nav__item">
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
@@ -455,41 +381,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
-								<a href="faq.html" class="nav__link">faq</a>
-							</li>
-							<li class="nav__item">
-								<a href="course.html" class="nav__link">courses</a>
-							</li>
-							<li class="nav__item">
-								<a href="review.html" class="nav__link">reviews</a>
-							</li>
-							<li class="nav__item">
-								<a href="photo.html" class="nav__link">photo</a>
-							</li>
-							<li class="nav__item">
-								<a href="blog.html" class="nav__link nav__link_has-sub">blog</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="blog.html" class="nav__link">Page Blog</a>
-									</li>
-									<li class="nav__item">
-										<a href="article.html" class="nav__link">Single Blog</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav__item">
-								<a href="address.html" class="nav__link">contacts</a>
-							</li>
-							<li class="nav__item">
-								<a href="teachers.html" class="nav__link nav__link_has-sub">teachers</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="teachers.html" class="nav__link">teachers</a>
-									</li>
-									<li class="nav__item">
-										<a href="teacher.html" class="nav__link">Teacher Profile</a>
-									</li>
-								</ul>
+								<a href="coachAction/load_coach" class="nav__link">预 约 教 练</a>
 							</li>
 						</ul>
 					</div>

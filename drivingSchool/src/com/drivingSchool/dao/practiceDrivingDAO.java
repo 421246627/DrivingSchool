@@ -82,4 +82,11 @@ public interface practiceDrivingDAO
 	 * @return
 	 */
 	public List<Object[]> find_practiceDrivingByappointmentDateAndHoursAndstudentApplyId(String coachId,Date appointmentDate,String stateId,String studentApplyId);
+	/**
+	 * 根据学生编号,班别类型查询
+	 * @param studentApplyId
+	 * @param classTypesId
+	 * @return
+	 */
+	public List<practiceDriving> find_practiceDrivingBystudentApplyIdAndclassTypesId(String studentApplyId,String classTypesId);
 }

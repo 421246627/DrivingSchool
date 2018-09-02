@@ -1,5 +1,4 @@
 package com.drivingSchool.util;
-
 import java.security.MessageDigest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -48,7 +48,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta name="keywords" content="">
 		<link href="assets/styles/app.min.css" rel="stylesheet">
 	</head>
-
 	<body class="page">
 		<div class="header">
 			<div class="header__row container">
@@ -89,27 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="nav__close"></div>
 						<ul class="nav__list">
 							<li class="nav__item">
-								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link nav__link_has-sub nav__link_active">主 页</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-moto.html" class="nav__link">Motorcycle Training</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-ext.html" class="nav__link">Extremal Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-dop.html" class="nav__link">Safety Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing-inst.html" class="nav__link">Personal Teacher</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing.html" class="nav__link">Selection of teachers</a>
-									</li>
-								</ul>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
 							</li>
 							<li class="nav__item">
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
@@ -121,33 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
-								<a href="faq.html" class="nav__link">faq</a>
-							</li>
-							<li class="nav__item">
-								<a href="course.html" class="nav__link">courses</a>
-							</li>
-							<li class="nav__item">
-								<a href="review.html" class="nav__link">reviews</a>
-							</li>
-							<li class="nav__item">
-								<a href="photo.html" class="nav__link">photo</a>
-							</li>
-							<li class="nav__item">
-								<a href="blog.html" class="nav__link nav__link_has-sub">blog</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="blog.html" class="nav__link">Page Blog</a>
-									</li>
-									<li class="nav__item">
-										<a href="article.html" class="nav__link">Single Blog</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav__item">
-								<a href="address.html" class="nav__link">contacts</a>
-							</li>
-							<li class="nav__item">
-								<a href="coachAction/load_coach" class="nav__link nav__link_has-sub">预 约 教 练</a>
+								<a href="coachAction/load_coach" class="nav__link">预 约 教 练</a>
 							</li>
 						</ul>
 					</div>
@@ -179,14 +132,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<a href="personalcenterAction/load_personalcenter" class="filter__item filter__item_active">
 								<span class="filter__item-text">信 息 修 改</span>
 							</a>
-							<a class="filter__item" href="drivingLicenseMessageAction/load_drivingLicenseMessageAction" target="iframebody">
-								<span class="filter__item-text">驾 考 信 息</span>
-								<input type="hidden" id="update_studentApplyResult" value="${requestScope.update_studentApplyResult }">
-								<input type="hidden" id="alipayerror" value="${requestScope.alipayerror}">
-							</a>
 							<c:choose>
 								<c:when test="${empty requestScope.studentApply }"></c:when>
 								<c:otherwise>
+									<a class="filter__item" href="drivingLicenseMessageAction/load_drivingLicenseMessageAction" target="iframebody">
+										<span class="filter__item-text">驾 考 信 息</span>
+										<input type="hidden" id="update_studentApplyResult" value="${requestScope.update_studentApplyResult }">
+										<input type="hidden" id="alipayerror" value="${requestScope.alipayerror}">
+									</a>
+									<a class="filter__item" href="myReservationAction/load_myReservationAction" target="iframebody">
+										<span class="filter__item-text">我 的 预 约</span>
+									</a>
 									<c:choose>
 										<c:when test="${requestScope.studentApply.stateId eq '554a242a-b6a1-491f-bf95-2f3b9bd4cef2'}"></c:when>
 										<c:otherwise>
@@ -197,14 +153,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													</a>
 												</c:when>
 												<c:otherwise>
-													<a class="filter__item">
+													<a class="filter__item" href="orderInfoAction/find_orderInfoBystudentApplyId" target="iframebody">
 														<span class="filter__item-text">订 单 信 息</span>
 													</a>
-													<a class="filter__item">
+													<a class="filter__item" href="applyTestAction/load_applyTest" target="iframebody">
 														<span class="filter__item-text">预 约 考 试</span>
 													</a>
 													<a class="filter__item" href="coachAction/load_coach">
 														<span class="filter__item-text">预 约 练 车</span>
+													</a>
+													<a class="filter__item" href="applyTestAction/find_applyTestBystudentApply" target="iframebody">
+														<span class="filter__item-text">考 试 信 息</span>
 													</a>
 												</c:otherwise>
 											</c:choose>
@@ -232,7 +191,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="sertificate">
 				<div class="container">
 					<h2 class="title title_theme_white">
-						<span class="title__mark">SERTIFICATE</span>
+						<span class="title__mark">荣 誉 证 书</span>
 					</h2>
 					<ul class="sertificate__list row">
 						<li class="sertificate__item col-xs-6 col-md-2">
@@ -289,73 +248,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="nav__close"></div>
 						<ul class="nav__list">
 							<li class="nav__item">
-								<a href="index.html" class="nav__link nav__link_has-sub">Home</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="index.html" class="nav__link">Home</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-moto.html" class="nav__link">Motorcycle Training</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-ext.html" class="nav__link">Extremal Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-dop.html" class="nav__link">Safety Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing-inst.html" class="nav__link">Personal Teacher</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing.html" class="nav__link">Selection of teachers</a>
-									</li>
-								</ul>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
 							</li>
 							<li class="nav__item">
-								<a href="about.html" class="nav__link">about</a>
+								<a href="about.jsp" class="nav__link">关 于 我 们</a>
 							</li>
 							<li class="nav__item">
-								<a href="feature.html" class="nav__link">features</a>
+								<a href="personalcenterAction/load_personalcenter" class="nav__link">个 人 中 心</a>
 							</li>
 							<li class="nav__item">
-								<a href="price.html" class="nav__link">price</a>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
-								<a href="faq.html" class="nav__link">faq</a>
-							</li>
-							<li class="nav__item">
-								<a href="course.html" class="nav__link">courses</a>
-							</li>
-							<li class="nav__item">
-								<a href="review.html" class="nav__link">reviews</a>
-							</li>
-							<li class="nav__item">
-								<a href="photo.html" class="nav__link">photo</a>
-							</li>
-							<li class="nav__item">
-								<a href="blog.html" class="nav__link nav__link_has-sub">blog</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="blog.html" class="nav__link">Page Blog</a>
-									</li>
-									<li class="nav__item">
-										<a href="article.html" class="nav__link">Single Blog</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav__item">
-								<a href="address.html" class="nav__link nav__link_active">contacts</a>
-							</li>
-							<li class="nav__item">
-								<a href="teachers.html" class="nav__link nav__link_has-sub">teachers</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="teachers.html" class="nav__link">teachers</a>
-									</li>
-									<li class="nav__item">
-										<a href="teacher.html" class="nav__link">Teacher Profile</a>
-									</li>
-								</ul>
+								<a href="coachAction/load_coach" class="nav__link">预 约 教 练</a>
 							</li>
 						</ul>
 					</div>
@@ -365,11 +270,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="row">
 					<div class="footer__section col-md-3">
 						<div class="footer__about">
-							<h4 class="footer__title">about</h4>
-							<p class="footer__text">have been serving NYC with its 8 branches and completed 5k+ students in last 10 years. We have a team of experienced
-								and certified trainers who will help you from the start to end of a driving lesson.</p>
+							<h4 class="footer__title">关 于 我 们</h4>
+							<p class="footer__text">在过去的1年里,在郑州拥有8个训练场地,完成了5000多名学生。我们有一支经验丰富的队伍还有认证的培训师,从驾驶课开始到结束都会给你帮助。</p>
 							<div class="logo footer__logo">
-								<a href="index.html" class="logo__link">
+								<a href="index.jsp" class="logo__link">
 									<svg class="logo__icon"><use xlink:href="assets/images/icon.svg#icon_logo"></use></svg>
 									<span class="logo__text">driving school</span>
 								</a>
@@ -378,7 +282,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div class="footer__section col-md-3">
 						<div class="footer__blog">
-							<h4 class="footer__title">blog</h4>
+							<h4 class="footer__title">评 论</h4>
 							<article class="footer__post">
 								<a href="" class="footer__post-wrap">
 									<h5 class="footer__post-title">Mountains car travel</h5>
@@ -392,14 +296,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</article>
 							<a href="" class="footer__more">
-								See all posts
+								观 看 所 有 评 论
 								<svg class="footer__more-icon"><use xlink:href="assets/images/icon.svg#icon_right"></use></svg>
 							</a>
 						</div>
 					</div>
 					<div class="footer__section col-md-3">
 						<div class="footer__instagramm">
-							<h4 class="footer__title">Instagram</h4>
+							<h4 class="footer__title">动 态</h4>
 							<ul class="footer__instagramm-list">
 								<li class="footer__instagramm-item">
 									<a href="assets/images/inst/i1.jpg" class="footer__instagramm-link">
@@ -457,48 +361,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</li>
 							</ul>
 							<a href="" class="footer__more">
-								See all posts
+								观 看 所 有 评 论
 								<svg class="footer__more-icon"><use xlink:href="assets/images/icon.svg#icon_right"></use></svg>
 							</a>
 						</div>
 					</div>
 					<div class="footer__section col-md-3">
 						<div class="footer__hours">
-							<h4 class="footer__title">Opening Hours</h4>
+							<h4 class="footer__title">营 业 时 间</h4>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Monday</div>
+								<div class="footer__hours-day">星 期 一</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 18:00</div>
+								<div class="footer__hours-time">08:00 - 20:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Tuesday</div>
+								<div class="footer__hours-day">星 期 二</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 18:00</div>
+								<div class="footer__hours-time">08:00 - 20:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Wednesday</div>
+								<div class="footer__hours-day">星 期 三</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 18:00</div>
+								<div class="footer__hours-time">08:00 - 20:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Thursday</div>
+								<div class="footer__hours-day">星 期 四</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 18:00</div>
+								<div class="footer__hours-time">08:00 - 20:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Friday</div>
+								<div class="footer__hours-day">星 期 五</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 18:00</div>
+								<div class="footer__hours-time">08:00 - 20:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Saturday</div>
+								<div class="footer__hours-day">星 期 六</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">08:00 - 13:30</div>
+								<div class="footer__hours-time">08:00 - 22:00</div>
 							</div>
 							<div class="footer__hours-item">
-								<div class="footer__hours-day">Sunday</div>
+								<div class="footer__hours-day">星 期 日</div>
 								<div class="footer__hours-separ"></div>
-								<div class="footer__hours-time">Closed</div>
+								<div class="footer__hours-time">08:00 - 22:00</div>
 							</div>
 						</div>
 					</div>
@@ -508,8 +412,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="dev">
 			<div class="container">
 				<div class="dev__item">
-					Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-				</div>
+					版权 &copy; 2018年。公司名称版权所有 A309</div>
 			</div>
 		</div>
 		<script>

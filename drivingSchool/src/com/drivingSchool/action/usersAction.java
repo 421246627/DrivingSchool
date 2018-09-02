@@ -79,7 +79,7 @@ public class usersAction extends ActionSupport
 	@Action(value="register_user",results={@Result(name="success",type="dispatcher",location="/index.jsp")})
 	public String register_user()
 	{
-		//request.put("register_result",usersservice.insert_users(this.getUsers()));
+		request.put("register_result",usersservice.insert_users(this.getUsers()));
 		return SUCCESS;
 	}
 	@Action(value="login_user",results={@Result(name="success",type="chain",params={"namespace","/personalcenterAction"},location="load_personalcenter"),@Result(name="loginloser",type="chain",params={"namespace","/drivingLicenseCostAction"},location="find_drivingLicenseCostThree")})

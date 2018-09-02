@@ -44,7 +44,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta name="keywords" content="">
 		<link href="assets/styles/app.min.css" rel="stylesheet">
 	</head>
-
 	<body class="page">
 		<div class="header">
 			<div class="header__row container">
@@ -85,27 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="nav__close"></div>
 						<ul class="nav__list">
 							<li class="nav__item">
-								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link nav__link_has-sub nav__link_active">主 页</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-moto.html" class="nav__link">Motorcycle Training</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-ext.html" class="nav__link">Extremal Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-dop.html" class="nav__link">Safety Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing-inst.html" class="nav__link">Personal Teacher</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing.html" class="nav__link">Selection of teachers</a>
-									</li>
-								</ul>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
 							</li>
 							<li class="nav__item">
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
@@ -117,41 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
-								<a href="faq.html" class="nav__link">faq</a>
-							</li>
-							<li class="nav__item">
-								<a href="course.html" class="nav__link">courses</a>
-							</li>
-							<li class="nav__item">
-								<a href="review.html" class="nav__link">reviews</a>
-							</li>
-							<li class="nav__item">
-								<a href="photo.html" class="nav__link">photo</a>
-							</li>
-							<li class="nav__item">
-								<a href="blog.html" class="nav__link nav__link_has-sub">blog</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="blog.html" class="nav__link">Page Blog</a>
-									</li>
-									<li class="nav__item">
-										<a href="article.html" class="nav__link">Single Blog</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav__item">
-								<a href="address.html" class="nav__link">contacts</a>
-							</li>
-							<li class="nav__item">
-								<a href="teachers.html" class="nav__link nav__link_has-sub">teachers</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="teachers.html" class="nav__link">teachers</a>
-									</li>
-									<li class="nav__item">
-										<a href="teacher.html" class="nav__link">Teacher Profile</a>
-									</li>
-								</ul>
+								<a href="coachAction/load_coach" class="nav__link">预 约 教 练</a>
 							</li>
 						</ul>
 					</div>
@@ -200,7 +145,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<h2 class="categoryes__name">驾照类型《C》</h2>
 								<p class="categoryes__desc">
 									C1驾驶证是驾驶证代号的一种。准驾小型、微型载客汽车以及轻型、微型载货汽车、轻、小、微型专项作业车等车型。考试科目包括交通法规及相关知识、场地驾驶、道路驾驶、安全文明驾驶常识等四项。考试科目的顺序按交通法规及相关知识（简称科目一）、场地驾驶（简称科目二）、道路驾驶 （简称科目三）依次进行。在考试过程中，前一科目不及格，以下科目不再进行，每个科目考试一次，补考一次，补考机会有5次，补考5次仍不合格的，本次考试终止。在学习驾驶证有效期内，允许重新申请考试，重新申请允许的最大次数由当地交管部门规定，考试的时间间隔不少于11天。</p>
-								<a class="btn categoryes__more" href="">
+								<a class="btn categoryes__more" href="drivingLicenseCostAction/find_drivingLicenseCost">
 									<span class="btn__text">预 约 报 名</span>
 								</a>
 							</div>
@@ -218,7 +163,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="col-md-9 col-md-pull-3">
 								<h2 class="categoryes__name">驾 照 类 型 《B》</h2>
 								<p class="categoryes__desc">B照分为B1和B2，B2驾驶证年满20周岁可以直接申领，也可以C1驾驶证满一年后直接增驾B2，但B1驾驶证需要年满21周岁，并且拿到C1驾驶证3年后且连续2个记分周期没有扣满12分记录的，符合条件的就可以向当地车管所提出申请，通过驾校报名考试，完成科目一二三四，即可拿证了。</p>
-								<a class="btn categoryes__more" href="">
+								<a class="btn categoryes__more" href="drivingLicenseCostAction/find_drivingLicenseCost">
 									<span class="btn__text">预 约 报 名</span>
 								</a>
 							</div>
@@ -236,7 +181,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="col-md-9">
 								<h2 class="categoryes__name">驾 照 类 型《A》</h2>
 								<p class="categoryes__desc">按照新的规定，初次申领驾驶证者，不能申请A1(大型客车)，可申请的准驾车型为城市公交车、大型货车、小型汽车、小型自动挡汽车、低速载货汽车、三轮汽车、普通三轮摩托车、普通二轮摩托车、轻便摩托车、轮式自行机械车、无轨电车、有轨电车。在暂住地初次申领驾驶证，可以申请C照系列驾照，即小型汽车、小型自动挡汽车、低速载货汽车、三轮汽车。不能申请摩托车。</p>
-								<a class="btn categoryes__more" href="">
+								<a class="btn categoryes__more" href="drivingLicenseCostAction/find_drivingLicenseCost">
 									<span class="btn__text">预 约 报 名</span>
 								</a>
 							</div>
@@ -304,27 +249,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="nav__close"></div>
 						<ul class="nav__list">
 							<li class="nav__item">
-								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link nav__link_has-sub nav__link_active">主 页</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-moto.html" class="nav__link">Motorcycle Training</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-ext.html" class="nav__link">Extremal Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="index-dop.html" class="nav__link">Safety Driving</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing-inst.html" class="nav__link">Personal Teacher</a>
-									</li>
-									<li class="nav__item">
-										<a href="landing.html" class="nav__link">Selection of teachers</a>
-									</li>
-								</ul>
+								<a href="drivingLicenseCostAction/find_drivingLicenseCostThree" class="nav__link">主 页</a>
 							</li>
 							<li class="nav__item">
 								<a href="about.jsp" class="nav__link">关 于 我 们</a>
@@ -336,41 +261,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="drivingLicenseCostAction/find_drivingLicenseCost" class="nav__link">价 格</a>
 							</li>
 							<li class="nav__item">
-								<a href="faq.html" class="nav__link">faq</a>
-							</li>
-							<li class="nav__item">
-								<a href="course.html" class="nav__link">courses</a>
-							</li>
-							<li class="nav__item">
-								<a href="review.html" class="nav__link">reviews</a>
-							</li>
-							<li class="nav__item">
-								<a href="photo.html" class="nav__link">photo</a>
-							</li>
-							<li class="nav__item">
-								<a href="blog.html" class="nav__link nav__link_has-sub">blog</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="blog.html" class="nav__link">Page Blog</a>
-									</li>
-									<li class="nav__item">
-										<a href="article.html" class="nav__link">Single Blog</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav__item">
-								<a href="address.html" class="nav__link">contacts</a>
-							</li>
-							<li class="nav__item">
-								<a href="teachers.html" class="nav__link nav__link_has-sub">teachers</a>
-								<ul class="nav__sub">
-									<li class="nav__item">
-										<a href="teachers.html" class="nav__link">teachers</a>
-									</li>
-									<li class="nav__item">
-										<a href="teacher.html" class="nav__link">Teacher Profile</a>
-									</li>
-								</ul>
+								<a href="coachAction/load_coach" class="nav__link">预 约 教 练</a>
 							</li>
 						</ul>
 					</div>

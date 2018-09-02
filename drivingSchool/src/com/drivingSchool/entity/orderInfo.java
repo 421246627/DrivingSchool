@@ -5,7 +5,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table
@@ -20,6 +23,7 @@ public class orderInfo implements Serializable
 	private String alipayOrderId;
 	private String studentApplyId;
 	private String stateId;
+	private state state;
 	private Date orderInfoDate;
 	@Id
 	@Column
@@ -71,7 +75,7 @@ public class orderInfo implements Serializable
 	public void setStudentApplyId(String studentApplyId) {
 		this.studentApplyId = studentApplyId;
 	}
-	@Column
+	@Column(insertable=false,updatable=false)
 	public String getStateId() {
 		return stateId;
 	}
@@ -85,22 +89,12 @@ public class orderInfo implements Serializable
 	public void setOrderInfoDate(Date orderInfoDate) {
 		this.orderInfoDate = orderInfoDate;
 	}
-	public orderInfo(String orderInfoId, String orderInfoName,
-			double orderInfoPrice, String orderTypeId,
-			String transactionNumber, String alipayOrderId,
-			String studentApplyId, String stateId, Date orderInfoDate) {
-		super();
-		this.orderInfoId = orderInfoId;
-		this.orderInfoName = orderInfoName;
-		this.orderInfoPrice = orderInfoPrice;
-		this.orderTypeId = orderTypeId;
-		this.transactionNumber = transactionNumber;
-		this.alipayOrderId = alipayOrderId;
-		this.studentApplyId = studentApplyId;
-		this.stateId = stateId;
-		this.orderInfoDate = orderInfoDate;
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="stateId")
+	public state getState() {
+		return state;
 	}
-	public orderInfo() {
-		super();
+	public void setState(state state) {
+		this.state = state;
 	}
 }

@@ -43,4 +43,11 @@ public class orderInfoDAOImpl extends BaseDAO implements orderInfoDAO
 		String hql="from orderInfo where orderTypeId=? and studentApplyId=? and stateId=?";
 		return super.query_executeFind(hql,null,orderTypeId,studentApplyId,stateId);
 	}
+
+	@Override
+	public List<orderInfo> find_orderInfoBystudentApplyId(String studentApplyId) 
+	{
+		String hql="from orderInfo where studentApplyId=?";
+		return super.query_executeFind(hql,null,studentApplyId);
+	}
 }

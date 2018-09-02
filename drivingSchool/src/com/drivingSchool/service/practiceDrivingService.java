@@ -26,6 +26,8 @@ public class practiceDrivingService
 	private practiceDrivingDAOImpl practicedrivingdaoimpl;
 	@Autowired
 	private encryption encryption;
+	@Autowired
+	private stateService stateservice;
 	/**
 	 * 获取大包班教练的预约时间
 	 * @param findDate
@@ -216,7 +218,7 @@ public class practiceDrivingService
 	public boolean cancle_practiceDrivingBypracticeDrivingId(String practiceDrivingId)
 	{
 		practiceDriving p=practicedrivingdaoimpl.find_practiceDrivingBypracticeDrivingId(practiceDrivingId);
-		p.setStateId("a0c8f108-800d-4304-9ae5-99412e08bc61");
+		p.setState(stateservice.find_stateBystateId("a0c8f108-800d-4304-9ae5-99412e08bc61"));
 		return practicedrivingdaoimpl.update_practiceDriving(p);
 	}
 	/**
@@ -247,7 +249,7 @@ public class practiceDrivingService
 		p.setPracticeDrivingId(encryption.getUUID().toString());
 		p.setStudentApplyId(studentApplyId);
 		p.setCoach(coach);
-		p.setStateId("015b538e-2582-4634-8b63-ab0743b9682f");
+		p.setState(stateservice.find_stateBystateId("015b538e-2582-4634-8b63-ab0743b9682f"));
 		p.setAppointmentDate(appointmentDate);
 		p.setClassTypesId(coach.getClassTypesId());
 		String practiceDrivingId=practicedrivingdaoimpl.insert_practiceDriving(p).toString();
@@ -298,5 +300,19 @@ public class practiceDrivingService
 	{
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh");
 		return practicedrivingdaoimpl.find_practiceDrivingByappointmentDateAndHoursAndstudentApplyId(coachId,sdf.parse(appointmentDate), stateId, studentApplyId);
+	}
+	/**
+	 * 根据学生编号,班别类型查询
+	 * @param studentApplyId
+	 * @param classTypesId
+	 * @return
+	 */
+	public List<practiceDriving> find_practiceDrivingBystudentApplyIdAndclassTypesId(String studentApplyId,String classTypesId)
+	{
+		List<practiceDriving>list=practicedrivingdaoimpl.find_practiceDrivingBystudentApplyIdAndclassTypesId(studentApplyId, classTypesId);
+		if(null!=list&&0<list.size())
+		return list;
+		else
+		return null;
 	}
 }

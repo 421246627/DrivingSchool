@@ -26,6 +26,7 @@ import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.drivingSchool.entity.orderInfo;
 import com.drivingSchool.entity.studentApply;
 import com.drivingSchool.service.orderInfoService;
+import com.drivingSchool.service.stateService;
 import com.drivingSchool.service.studentApplyService;
 import com.drivingSchool.util.Mail;
 @ParentPackage("json-default")
@@ -38,6 +39,8 @@ public class alipayAction extends ActionSupport
 	private studentApplyService studentapplyservice;
 	@Autowired
 	private orderInfoService orderinfoserivce;
+	@Autowired
+	private stateService stateservice;
 	@Action(value="return_url",results={@Result(name="success",type="redirect",location="/alipay.jsp")})
 	public String return_url() throws UnsupportedEncodingException, AlipayApiException
 	{
@@ -101,15 +104,33 @@ public class alipayAction extends ActionSupport
 			orderInfo o=orderinfoserivce.find_orderInfoByalipayOrderId(out_trade_no);
 			studentApply stu=studentapplyservice.find_studentApplyBystudentApplyId(o.getStudentApplyId());
 			o.setTransactionNumber(trade_no);
-			o.setStateId("83b64ed7-b34e-4721-ad4f-df085c67f8d6");
+			o.setState(stateservice.find_stateBystateId("83b64ed7-b34e-4721-ad4f-df085c67f8d6"));
 			o.setOrderInfoDate(new Date());
 			stu.setStateId("3fb3680e-9d67-4d80-87f2-7d4a6c4d977b");
 			studentapplyservice.update_studentApply(stu);//修改学生状态为代体检
-			orderinfoserivce.update_orderInfo(o);
-			Mail mail=new Mail();
-			//发送邮件
-			mail.sendMessages(stu.getEmailAddress(),"<div style='width:800px;margin:auto;'><p style='border-bottom:1px solid #CCCCCC;padding:10px 0px;'><span style='font-family:Montserrat;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:25px;'>driving school</span></p><p style='font-size:18px;'>尊敬的用户:</p><p>您已成为本校的一名学员,为了学习新的驾考知识,您需要前往本校网站的个人中心,提前预约体检,谢谢合作!</p><p>体检所需材料:身份证</p><p style='margin-top:50px;border-top:1px solid #CCCCCC;padding:10px 0px;color:#CCCCCC;'>此为系统邮件，请勿回复；©driving school 2004-2018 All Right Reserved</p></div>");
-			return SUCCESS;
+			if(studentapplyservice.update_studentApply(stu))
+			{
+				if(orderinfoserivce.update_orderInfo(o))
+				{
+					//修改订单为已完成
+					o.setState(stateservice.find_stateBystateId("db3ea435-da12-41c1-8ab1-9dc4d98e068a"));
+					orderinfoserivce.update_orderInfo(o);
+					Mail mail=new Mail();
+					//发送邮件
+					mail.sendMessages(stu.getEmailAddress(),"<div style='width:800px;margin:auto;'><p style='border-bottom:1px solid #CCCCCC;padding:10px 0px;'><span style='font-family:Montserrat;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:25px;'>driving school</span></p><p style='font-size:18px;'>尊敬的用户:</p><p>您已成为本校的一名学员,为了学习新的驾考知识,您需要前往本校网站的个人中心,提前预约体检,谢谢合作!</p><p>体检所需材料:身份证</p><p style='margin-top:50px;border-top:1px solid #CCCCCC;padding:10px 0px;color:#CCCCCC;'>此为系统邮件，请勿回复；©driving school 2004-2018 All Right Reserved</p></div>");
+					return SUCCESS;
+				}
+				else 
+				{
+					request.setAttribute("alipayerror","false");//支付失败,跳转至个人中心
+					return "alipayerror";
+				}
+			}
+			else 
+			{
+				request.setAttribute("alipayerror","false");//支付失败,跳转至个人中心
+				return "alipayerror";
+			}
 		}
 		else 
 		{
@@ -146,7 +167,7 @@ public class alipayAction extends ActionSupport
 				String trade_no=request.getParameter("trade_no");
 				orderInfo o=orderinfoserivce.find_orderInfoByalipayOrderId(out_trade_no);
 				o.setTransactionNumber(trade_no);
-				o.setStateId("83b64ed7-b34e-4721-ad4f-df085c67f8d6");
+				o.setState(stateservice.find_stateBystateId("83b64ed7-b34e-4721-ad4f-df085c67f8d6"));
 				o.setOrderInfoDate(new Date());
 				studentApply stu=studentapplyservice.find_studentApplyBystudentApplyId(o.getStudentApplyId());
 				if(o.getOrderTypeId().equals("2cdce890-e8da-422d-96a3-13e9f7d6071b"))//练车券
@@ -159,11 +180,20 @@ public class alipayAction extends ActionSupport
 					stu.setSupplementaryExamination("true");//
 					studentapplyservice.update_studentApply(stu);
 				}
-				orderinfoserivce.update_orderInfo(o);
-				Mail mail=new Mail();
-				//发送邮件
-				mail.sendMessages(stu.getEmailAddress(),"<div style='width:800px;margin:auto;'><p style='border-bottom:1px solid #CCCCCC;padding:10px 0px;'><span style='font-family:Montserrat;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:25px;'>driving school</span></p><p style='font-size:18px;'>尊敬的用户:</p><p>您购买<span style='color:#F23A3A;'>"+o.getOrderInfoName()+"</span>成功,前去个人中心查看订单信息!</p><p style='margin-top:50px;border-top:1px solid #CCCCCC;padding:10px 0px;color:#CCCCCC;'>此为系统邮件，请勿回复；©driving school 2004-2018 All Right Reserved</p></div>");
-				return SUCCESS;
+				if(orderinfoserivce.update_orderInfo(o))
+				{
+					o.getOrderTypeId().equals("db3ea435-da12-41c1-8ab1-9dc4d98e068a");
+					orderinfoserivce.update_orderInfo(o);
+					Mail mail=new Mail();
+					//发送邮件
+					mail.sendMessages(stu.getEmailAddress(),"<div style='width:800px;margin:auto;'><p style='border-bottom:1px solid #CCCCCC;padding:10px 0px;'><span style='font-family:Montserrat;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:25px;'>driving school</span></p><p style='font-size:18px;'>尊敬的用户:</p><p>您购买<span style='color:#F23A3A;'>"+o.getOrderInfoName()+"</span>成功,前去个人中心查看订单信息!</p><p style='margin-top:50px;border-top:1px solid #CCCCCC;padding:10px 0px;color:#CCCCCC;'>此为系统邮件，请勿回复；©driving school 2004-2018 All Right Reserved</p></div>");
+					return SUCCESS;
+				}
+				else
+				{
+					request.setAttribute("otherCostAlipayresult","false");//支付失败,跳转至个人中心
+					return "alipayerror";
+				}
 			}
 			else 
 			{

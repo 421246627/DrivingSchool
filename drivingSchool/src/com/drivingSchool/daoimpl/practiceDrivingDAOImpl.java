@@ -82,5 +82,12 @@ public class practiceDrivingDAOImpl extends BaseDAO implements practiceDrivingDA
 	{
 		return super.sqlquery_executeFind(sql,null,params);
 	}
+
+	@Override
+	public List<practiceDriving> find_practiceDrivingBystudentApplyIdAndclassTypesId(String studentApplyId, String classTypesId)
+	{
+		String hql="from practiceDriving where studentApplyId=? and classTypesId=?";
+		return super.query_executeFind(hql,null,studentApplyId,classTypesId);
+	}
 	
 }

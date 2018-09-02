@@ -1,5 +1,6 @@
 package com.drivingSchool.action;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -15,6 +16,7 @@ import com.drivingSchool.entity.studentApply;
 import com.drivingSchool.entity.users;
 import com.drivingSchool.service.orderInfoService;
 import com.drivingSchool.service.otherCostService;
+import com.drivingSchool.service.stateService;
 import com.drivingSchool.service.studentApplyService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -37,6 +39,8 @@ public class orderInfoAction extends ActionSupport
 	private studentApplyService studentapplyservice;
 	@Autowired
 	private encryption encryption;
+	@Autowired
+	private stateService stateservice;
 	@Action(value="insert_orderInfo",results={@Result(name="success",type="chain",params={"namespace","/alipayAction"},location="showAlipayAction"),@Result(name="error",type="chain",params={"namespace","/drivingLicenseCostAction"},location="find_drivingLicenseCost")})
 	public String insert_orderInfo()
 	{
@@ -72,7 +76,7 @@ public class orderInfoAction extends ActionSupport
 			orderinfo.setOrderTypeId(othercost.getOrderTypeId());
 			orderinfo.setAlipayOrderId(encryption.getUUID());
 			orderinfo.setStudentApplyId(stu.getStudentApplyId());
-			orderinfo.setStateId("554a242a-b6a1-491f-bf95-2f3b9bd4cef2");
+			orderinfo.setState(stateservice.find_stateBystateId("554a242a-b6a1-491f-bf95-2f3b9bd4cef2"));
 			if(null!=orderinfoservice.insert_orderInfo(orderinfo))
 			{
 				request.put("WIDout_trade_no",orderinfo.getAlipayOrderId());//支付宝订单编号
@@ -87,6 +91,15 @@ public class orderInfoAction extends ActionSupport
 				return ERROR;
 			}
 		}
+	}
+	@Action(value="find_orderInfoBystudentApplyId",results={@Result(name="success",location="/body/orderInfo.jsp")})
+	public String find_orderInfoBystudentApplyId()
+	{
+		users user=(users) session.get("user");
+		studentApply stu=studentapplyservice.find_studentApplyByuserId(user.getUserId());
+		List<orderInfo>list=orderinfoservice.find_orderInfoBystudentApplyId(stu.getStudentApplyId());
+		request.put("orderInfos",list);
+		return SUCCESS;
 	}
 	public String getOtherCostId() {
 		return otherCostId;
